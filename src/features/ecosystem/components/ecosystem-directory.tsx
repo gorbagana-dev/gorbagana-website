@@ -76,7 +76,7 @@ function ProjectRow({ project }: { project: EcosystemProject }) {
   return (
     <Link
       href={project.href}
-      className="group grid min-w-0 gap-6 px-6 py-7 transition hover:bg-white/[0.03] sm:px-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)_minmax(8rem,0.45fr)] md:items-center"
+      className="group grid min-w-0 gap-6 px-6 py-7 transition hover:bg-white/[0.03] sm:px-8 lg:grid-cols-[minmax(13rem,0.9fr)_minmax(0,1.3fr)_minmax(6.5rem,0.3fr)] lg:items-center"
     >
       <div className="min-w-0">
         <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-zinc-500 uppercase">
@@ -89,7 +89,7 @@ function ProjectRow({ project }: { project: EcosystemProject }) {
       <p className="max-w-2xl text-sm leading-6 text-zinc-400">
         {project.description}
       </p>
-      <div className="flex min-w-0 items-center justify-between gap-4 md:justify-end">
+      <div className="flex min-w-0 items-center justify-between gap-4 lg:justify-end">
         <span className="min-w-0 truncate font-mono text-xs font-medium text-zinc-500 uppercase transition group-hover:text-[#4dff91]">
           {domain}
         </span>

@@ -365,7 +365,7 @@ function EcosystemPreview({ project }: { project: EcosystemProject }) {
   return (
     <Link
       href={project.href}
-      className="group flex min-h-40 min-w-0 flex-col justify-between border-b border-white/10 p-5 transition last:border-b-0 hover:bg-white/[0.03] sm:min-h-44 sm:border-b-0 sm:odd:border-r sm:[&:nth-child(-n+2)]:border-b"
+      className="group flex min-h-40 min-w-0 flex-col border-b border-white/10 p-5 transition last:border-b-0 hover:bg-white/[0.03] sm:min-h-44 sm:border-b-0 sm:odd:border-r sm:[&:nth-child(-n+2)]:border-b"
     >
       <div className="flex min-w-0 items-start justify-between gap-4">
         <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-zinc-500 uppercase">
@@ -377,7 +377,7 @@ function EcosystemPreview({ project }: { project: EcosystemProject }) {
           weight="bold"
         />
       </div>
-      <div>
+      <div className="mt-8">
         <h3 className="font-heading text-2xl leading-none font-black tracking-[-0.03em] text-white">
           {project.label}
         </h3>

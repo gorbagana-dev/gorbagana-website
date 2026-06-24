@@ -301,7 +301,7 @@ export function SiteHeader() {
         Skip to content
       </a>
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#050505]/92 px-4 backdrop-blur-xl sm:px-5">
-        <nav className="mx-auto flex h-20 w-full max-w-[1824px] items-center justify-between gap-8">
+        <nav className="mx-auto flex h-20 w-full max-w-[1824px] items-center justify-between gap-4 lg:gap-6">
           <Link
             href="/"
             className="flex min-h-9 items-center font-heading text-2xl font-black text-white"
@@ -329,9 +329,9 @@ function DesktopNavigation() {
   return (
     <NavigationMenu
       viewport={false}
-      className="hidden max-w-none flex-none md:flex"
+      className="hidden max-w-none flex-none lg:flex"
     >
-      <NavigationMenuList className="gap-8">
+      <NavigationMenuList className="gap-5 xl:gap-8">
         {navigationGroups.map((item) => (
           <NavigationMenuItem key={item.label}>
             {"links" in item ? (
@@ -373,7 +373,7 @@ function MobileMenu() {
         <Button
           variant="outline"
           size="sm"
-          className="h-9 rounded-full border-white/10 bg-white/[0.03] px-4 font-mono text-xs font-bold text-white uppercase hover:bg-white/10 hover:text-white md:hidden"
+          className="h-9 rounded-full border-white/10 bg-white/[0.03] px-4 font-mono text-xs font-bold text-white uppercase hover:bg-white/10 hover:text-white lg:hidden"
         >
           Menu
           <ListIcon aria-hidden="true" className="size-4" weight="bold" />
@@ -382,7 +382,7 @@ function MobileMenu() {
       <SheetContent
         side="top"
         showCloseButton={false}
-        className="max-h-[calc(100dvh-1rem)] gap-0 overflow-y-auto border-white/10 bg-[#050505]/98 p-0 text-white shadow-2xl shadow-black/40 backdrop-blur-xl md:hidden"
+        className="max-h-[calc(100dvh-1rem)] gap-0 overflow-y-auto border-white/10 bg-[#050505]/98 p-0 text-white shadow-2xl shadow-black/40 backdrop-blur-xl lg:hidden"
       >
         <SheetHeader className="border-b border-white/10 px-5 py-5">
           <div className="flex items-center justify-between gap-4">
