@@ -9,6 +9,7 @@ import { gorbaganaNetwork } from "@/config/network";
 import { siteConfig } from "@/config/site";
 import { NetworkStatsRail } from "@/features/network-status/components/network-proof";
 import { SiteFooter, SiteHeader } from "@/features/site/components/site-chrome";
+import { HomeMotionRoot } from "./home-motion-root";
 
 const docsBaseUrl = siteConfig.links.docs.replace(/\/$/, "");
 
@@ -102,14 +103,14 @@ export function HomePage() {
     <>
       <SiteHeader />
 
-      <main
-        id="main-content"
-        className="min-h-dvh overflow-x-hidden bg-[#050505] text-white"
-      >
-        <section className="px-4 pt-20 sm:px-5">
+      <HomeMotionRoot>
+        <section data-hero-stage className="px-4 pt-20 sm:px-5">
           <div className="mx-auto w-full max-w-[1824px] border-x border-b border-white/10">
             <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(280px,316px)] xl:grid-cols-[minmax(0,1fr)_332px]">
-              <div className="min-w-0 lg:border-r lg:border-white/10">
+              <div
+                data-hero-copy
+                className="min-w-0 lg:border-r lg:border-white/10"
+              >
                 <div className="px-5 pt-12 pb-10 sm:px-8 sm:pt-16 sm:pb-12 lg:px-10 lg:pt-20">
                   <TextAnimate
                     as="h1"
@@ -149,7 +150,10 @@ export function HomePage() {
                 </div>
               </div>
 
-              <div className="relative min-w-0 overflow-hidden lg:border-t lg:border-white/10">
+              <div
+                data-hero-stats
+                className="relative min-w-0 overflow-hidden lg:border-t lg:border-white/10"
+              >
                 <NetworkStatsRail variant="compact" />
                 <BorderBeam
                   borderWidth={1}
@@ -166,7 +170,7 @@ export function HomePage() {
         <section className="px-4 sm:px-5">
           <div className="mx-auto grid w-full max-w-[1824px] divide-y divide-white/10 border-x border-b border-white/10 md:grid-cols-2 md:divide-x md:divide-y-0 xl:grid-cols-4">
             {actionLinks.map((actionLink) => (
-              <ActionLink key={actionLink.label} {...actionLink} />
+              <ActionLink key={actionLink.label} {...actionLink} reveal />
             ))}
           </div>
         </section>
@@ -185,7 +189,7 @@ export function HomePage() {
             </div>
             <div className="grid border border-white/10 sm:grid-cols-2">
               {whyReasons.map((reason) => (
-                <WhyReason key={reason.title} {...reason} />
+                <WhyReason key={reason.title} {...reason} reveal />
               ))}
             </div>
           </div>
@@ -193,7 +197,7 @@ export function HomePage() {
 
         <section className="px-4 sm:px-5">
           <div className="mx-auto grid w-full max-w-[1824px] gap-12 border-x border-b border-white/10 px-6 py-20 sm:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:py-28">
-            <div>
+            <div className="min-w-0">
               <AnimatedSectionHeading className="max-w-4xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
                 Find what is live on Gorbagana.
               </AnimatedSectionHeading>
@@ -211,9 +215,13 @@ export function HomePage() {
                 </Button>
               </div>
             </div>
-            <div className="grid grid-cols-1 border border-white/10 sm:grid-cols-2">
+            <div className="grid min-w-0 grid-cols-1 border border-white/10 sm:grid-cols-2">
               {ecosystemProjects.map((project) => (
-                <EcosystemPreview key={project.label} project={project} />
+                <EcosystemPreview
+                  key={project.label}
+                  project={project}
+                  reveal
+                />
               ))}
             </div>
           </div>
@@ -247,14 +255,14 @@ export function HomePage() {
             </div>
             <div className="grid sm:grid-cols-2">
               {useLinks.map((useLink) => (
-                <UseLink key={useLink.label} {...useLink} />
+                <UseLink key={useLink.label} {...useLink} reveal />
               ))}
             </div>
           </div>
         </section>
 
-        <section className="px-4 sm:px-5">
-          <div className="mx-auto flex w-full max-w-[1824px] flex-col justify-between gap-8 border-x border-b border-white/10 px-6 py-16 sm:px-10 lg:flex-row lg:items-end">
+        <section data-origin-section className="px-4 sm:px-5">
+          <div className="relative mx-auto flex w-full max-w-[1824px] flex-col justify-between gap-8 border-x border-b border-white/10 px-6 py-16 sm:px-10 lg:flex-row lg:items-end">
             <div>
               <p className="font-mono text-xs tracking-[0.18em] text-[#4dff91] uppercase">
                 Origin
@@ -270,9 +278,18 @@ export function HomePage() {
             >
               <Link href="/origin">Read origin</Link>
             </Button>
+            <div
+              aria-hidden="true"
+              className="absolute right-6 bottom-0 left-6 h-px origin-left overflow-hidden bg-white/10 sm:right-10 sm:left-10"
+            >
+              <div
+                data-origin-progress
+                className="h-full w-full origin-left scale-x-0 bg-[#4dff91]"
+              />
+            </div>
           </div>
         </section>
-      </main>
+      </HomeMotionRoot>
       <SiteFooter />
     </>
   );
@@ -304,15 +321,18 @@ function UseLink({
   meta,
   href,
   description,
+  reveal = false,
 }: {
   label: string;
   meta: string;
   href: string;
   description: string;
+  reveal?: boolean;
 }) {
   return (
     <Link
       href={href}
+      data-gsap-reveal={reveal ? "" : undefined}
       className="group flex min-h-52 min-w-0 flex-col justify-between border-b border-white/10 p-6 transition last:border-b-0 hover:bg-white/[0.03] sm:border-b-0 sm:p-8 sm:odd:border-r sm:[&:nth-child(-n+2)]:border-b"
     >
       <div className="flex min-w-0 items-start justify-between gap-4">
@@ -341,13 +361,18 @@ function WhyReason({
   title,
   meta,
   description,
+  reveal = false,
 }: {
   title: string;
   meta: string;
   description: string;
+  reveal?: boolean;
 }) {
   return (
-    <div className="min-w-0 border-b border-white/10 px-6 py-7 last:border-b-0 sm:min-h-56 sm:border-b-0 sm:px-8 sm:even:border-l sm:[&:nth-child(-n+2)]:border-b">
+    <div
+      data-gsap-reveal={reveal ? "" : undefined}
+      className="min-w-0 border-b border-white/10 px-6 py-7 last:border-b-0 sm:min-h-56 sm:border-b-0 sm:px-8 sm:even:border-l sm:[&:nth-child(-n+2)]:border-b"
+    >
       <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-zinc-500 uppercase">
         {meta}
       </p>
@@ -361,10 +386,17 @@ function WhyReason({
   );
 }
 
-function EcosystemPreview({ project }: { project: EcosystemProject }) {
+function EcosystemPreview({
+  project,
+  reveal = false,
+}: {
+  project: EcosystemProject;
+  reveal?: boolean;
+}) {
   return (
     <Link
       href={project.href}
+      data-gsap-reveal={reveal ? "" : undefined}
       className="group flex min-h-40 min-w-0 flex-col border-b border-white/10 p-5 transition last:border-b-0 hover:bg-white/[0.03] sm:min-h-44 sm:border-b-0 sm:odd:border-r sm:[&:nth-child(-n+2)]:border-b"
     >
       <div className="flex min-w-0 items-start justify-between gap-4">
@@ -381,7 +413,7 @@ function EcosystemPreview({ project }: { project: EcosystemProject }) {
         <h3 className="font-heading text-2xl leading-none font-black tracking-[-0.03em] text-white">
           {project.label}
         </h3>
-        <p className="mt-3 text-sm leading-6 text-zinc-400">
+        <p className="mt-3 max-w-md text-sm leading-6 break-words text-zinc-400">
           {project.description}
         </p>
       </div>
@@ -394,15 +426,18 @@ function ActionLink({
   meta,
   href,
   description,
+  reveal = false,
 }: {
   label: string;
   meta: string;
   href: string;
   description: string;
+  reveal?: boolean;
 }) {
   return (
     <Link
       href={href}
+      data-gsap-reveal={reveal ? "" : undefined}
       className="group block min-h-40 min-w-0 px-6 py-7 transition hover:bg-white/[0.03] sm:px-10 lg:px-6"
     >
       <div className="flex min-w-0 items-start justify-between gap-5">
