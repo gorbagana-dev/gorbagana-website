@@ -75,8 +75,8 @@ export default function Image() {
               maxWidth: 840,
             }}
           >
-            Build and test Solana-style apps where transactions stay cheap
-            enough for real experimentation.
+            A live Solana-derived L1 with native GOR, SVM-compatible tooling,
+            bridge, explorer, and apps.
           </div>
         </div>
         <div

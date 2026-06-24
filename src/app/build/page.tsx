@@ -61,10 +61,10 @@ const buildReasons = [
       "Use Solana-style accounts, programs, transactions, RPC, and deployment tooling.",
   },
   {
-    title: "Lower-cost iteration",
+    title: "On-chain iteration",
     meta: "Testing",
     description:
-      "Try high-frequency app flows, games, social mechanics, and token experiments without treating every action like a high-cost transaction.",
+      "Build frequent-action products such as games, social apps, launch tools, and token systems with native GOR fees.",
   },
   {
     title: "Ready to ship",
@@ -212,7 +212,7 @@ export default function BuildPage() {
       <InteriorPage
         eyebrow="Build"
         title="Build on Gorbagana"
-        description="Bring Solana-style tooling to a live network built for lower-cost app experiments and fast on-chain feedback."
+        description="Bring Solana-style tooling to a live L1 for apps, tokens, infrastructure, and community-built products."
       >
         <InteriorSection title="Developer path">
           <BuildPathGrid />
@@ -225,9 +225,9 @@ export default function BuildPage() {
         <InteriorSection title="Why build on Gorbagana?">
           <div className="border-b border-white/10 px-6 py-8 sm:px-8">
             <p className="max-w-2xl text-base leading-7 text-zinc-400">
-              Gorbagana gives Solana-style builders a live SVM network where
-              frequent app actions, games, social flows, and token experiments
-              stay affordable to test.
+              Gorbagana gives SVM builders a live network for frequent app
+              actions, games, social flows, token systems, and public ecosystem
+              launches.
             </p>
           </div>
           <InfoGrid items={buildReasons} />

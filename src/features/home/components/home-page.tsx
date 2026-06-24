@@ -78,10 +78,10 @@ const whyReasons = [
       "Use familiar accounts, programs, transactions, RPC, and Solana-style tooling.",
   },
   {
-    title: "Lower-cost iteration",
+    title: "On-chain room to ship",
     meta: "Experiments",
     description:
-      "Test frequent on-chain actions without treating every click like a high-cost transaction.",
+      "Run frequent on-chain actions across apps, games, social flows, and token systems without cost dominating the product.",
   },
   {
     title: "Ready to ship",
@@ -115,11 +115,9 @@ export function HomePage() {
                     as="h1"
                     animation="slideUp"
                     by="word"
-                    delay={0.18}
                     duration={0.56}
-                    startOnView
+                    startOnView={false}
                     once
-                    viewport={{ amount: 0.25, once: true }}
                     className="max-w-[1100px] font-heading text-[clamp(3rem,5.9vw,6.7rem)] leading-[0.92] font-black tracking-[-0.052em] text-white"
                   >
                     A Solana fork for internet-native apps
@@ -127,9 +125,9 @@ export function HomePage() {
                 </div>
                 <div className="border-t border-white/10 px-5 py-6 sm:px-8 lg:px-10">
                   <p className="max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8">
-                    Build and test Solana-style apps on a live SVM network
-                    where transactions stay cheap enough for real
-                    experimentation.
+                    Build apps, tokens, and network services on a live
+                    Solana-derived L1 with native GOR and SVM-compatible
+                    tooling.
                   </p>
                   <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                     <Button
@@ -177,12 +175,12 @@ export function HomePage() {
           <div className="mx-auto grid w-full max-w-[1824px] gap-12 border-x border-b border-white/10 px-6 py-20 sm:px-10 lg:grid-cols-[0.95fr_1.05fr] lg:py-28">
             <div className="max-w-2xl">
               <AnimatedSectionHeading className="max-w-2xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl">
-                A familiar SVM path with room to experiment.
+                A familiar SVM path for real apps.
               </AnimatedSectionHeading>
               <p className="mt-7 text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8">
                 Gorbagana keeps the Solana-style developer surface while giving
-                builders a lower-cost live network for apps, tokens, games,
-                tools, and community experiments.
+                builders a live network for apps, tokens, games, tools, and
+                community-native products.
               </p>
             </div>
             <div className="grid border border-white/10 sm:grid-cols-2">

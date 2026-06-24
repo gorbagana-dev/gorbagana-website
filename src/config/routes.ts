@@ -10,7 +10,7 @@ export const publicRoutes = [
     path: "/",
     title: "Gorbagana",
     description:
-      "Build and test Solana-style apps on a live SVM network with low-cost native GOR transactions.",
+      "Gorbagana is a live Solana-derived L1 with native GOR, SVM-compatible tooling, a bridge, explorer, docs, and a growing app ecosystem.",
     priority: 1,
   },
   {

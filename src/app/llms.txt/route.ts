@@ -13,7 +13,7 @@ function pageUrl(path: (typeof publicRoutes)[number]["path"]) {
 function llmsText() {
   return `# Gorbagana
 
-> Gorbagana is a live SVM network and Solana fork for building and testing Solana-style apps with native GOR, bridge support, docs, and explorer verification.
+> Gorbagana is a live Solana-derived L1 with native GOR, SVM-compatible tooling, bridge support, docs, explorer verification, and a growing app ecosystem.
 
 Important notes:
 - Gorbagana is Solana/SVM-compatible, but it has its own native network, token, RPC endpoint, explorer, and bridge.
