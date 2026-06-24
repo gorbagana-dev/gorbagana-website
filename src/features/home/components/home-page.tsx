@@ -115,9 +115,11 @@ export function HomePage() {
                     as="h1"
                     animation="slideUp"
                     by="word"
+                    delay={0.18}
                     duration={0.56}
-                    startOnView={false}
+                    startOnView
                     once
+                    viewport={{ amount: 0.25, once: true }}
                     className="max-w-[1100px] font-heading text-[clamp(3rem,5.9vw,6.7rem)] leading-[0.92] font-black tracking-[-0.052em] text-white"
                   >
                     A Solana fork for internet-native apps

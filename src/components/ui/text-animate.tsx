@@ -304,11 +304,16 @@ function TextAnimateBase({
   by = "word",
   animation = "fadeIn",
   accessible = true,
+  viewport,
   ...props
 }: TextAnimateProps) {
   const MotionComponent = motionElements[Component]
   const segments = getSegments(children, by)
   const segmentDuration = Math.max(duration / segments.length, 0.025)
+  const mergedViewport =
+    typeof viewport === "object"
+      ? { amount: 0.35, once, ...viewport }
+      : { amount: 0.35, once }
   const finalVariants = variants
     ? {
         container: {
@@ -361,11 +366,11 @@ function TextAnimateBase({
         animate={startOnView ? undefined : "show"}
         exit="exit"
         className={cn("whitespace-pre-wrap", className)}
-        viewport={{ once }}
-        aria-label={accessible ? children : undefined}
+        viewport={mergedViewport}
         data-text-animate=""
         {...props}
       >
+        {accessible ? <span className="sr-only">{children}</span> : null}
         {segments.map((segment, index) => (
           <motion.span
             key={`${by}-${segment}-${index}`}
