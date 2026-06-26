@@ -1,11 +1,17 @@
+import Image, { type StaticImageData } from "next/image";
+
 import { JsonLd } from "@/components/json-ld";
+import OriginBridgePath from "@/assets/origin/origin-bridge-path.webp";
+import OriginForkWentLive from "@/assets/origin/origin-fork-went-live.webp";
+import OriginGorTokenEvidence from "@/assets/origin/origin-gor-token-evidence.webp";
+import OriginInvestigationBoard from "@/assets/origin/origin-investigation-board.webp";
+import OriginOperatorsRoom from "@/assets/origin/origin-operators-room.webp";
 import { gorbaganaNetwork } from "@/config/network";
 import { siteConfig } from "@/config/site";
 import {
   InteriorPage,
   InteriorSection,
   ResourceGrid,
-  TextRows,
 } from "@/features/site/components/interior-page";
 import { createBreadcrumbJsonLd, createPageMetadata } from "@/lib/seo";
 import { XLogoIcon } from "@phosphor-icons/react/ssr";
@@ -20,24 +26,36 @@ const timeline = [
     title: "The challenge starts in public",
     description:
       "A debate between Anatoly Yakovenko and Lex_Node around Solana, branding, and forkability turns into a 48-hour challenge.",
+    image: OriginForkWentLive,
+    imageAlt:
+      "A torn-paper Gorbagana note reading The Fork Went Live.",
   },
   {
     time: "Hour 6",
     title: "GOR appears on Solana",
     description:
       "The token gives the idea a live market, a name, and a community center before the chain itself is ready.",
+    image: OriginGorTokenEvidence,
+    imageAlt:
+      "A glowing GOR token rendered as evidence on torn paper.",
   },
   {
     time: "Hour 22",
     title: "The first network path comes online",
     description:
       "Gorbagana builders bring up the early validator path with custom genesis, RPC access, and working transactions.",
+    image: OriginBridgePath,
+    imageAlt:
+      "A small green figure walking toward a glowing network bridge.",
   },
   {
     time: "Today",
     title: "The chain keeps running",
     description:
       "Gorbagana now has RPC access, explorer views, bridge support, docs, native GOR, and live ecosystem projects.",
+    image: OriginOperatorsRoom,
+    imageAlt:
+      "A dark operator room with green monitors and Gorbagana network diagrams.",
   },
 ] as const;
 
@@ -159,12 +177,7 @@ export default function OriginPage() {
         </InteriorSection>
 
         <InteriorSection title="48 hours">
-          <TextRows
-            rows={timeline.map((item) => ({
-              title: `${item.time}: ${item.title}`,
-              description: item.description,
-            }))}
-          />
+          <TimelineMediaRows items={timeline} />
         </InteriorSection>
 
         <InteriorSection title="Why it mattered">
@@ -305,25 +318,33 @@ function PeopleGrid({
 function StoryBlock() {
   return (
     <div className="px-6 py-8 sm:px-8 sm:py-10">
-      <div className="max-w-3xl space-y-6 text-lg leading-8 text-zinc-300">
-        <p>
-          Gorbagana did not begin as a foundation roadmap or a careful brand
-          rollout. It started in public, inside a debate about whether a chain
-          is only its code, or whether defaults, distribution, and social
-          gravity matter just as much.
-        </p>
-        <p>
-          The challenge was direct: if Solana can be forked, make the fork real.
-          Within hours, GOR had appeared on Solana. Within a day, builders were
-          working through the parts that make a chain usable: genesis, validator
-          path, RPC, wallet access, and a way for people to inspect what was
-          happening.
-        </p>
-        <p>
-          That is why the story stuck. The name was strange, but the work was
-          concrete. Gorbagana became a live SVM network because the community
-          treated the joke like a build spec.
-        </p>
+      <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_360px]">
+        <div className="max-w-3xl space-y-6 text-lg leading-8 text-zinc-300">
+          <p>
+            Gorbagana did not begin as a foundation roadmap or a careful brand
+            rollout. It started in public, inside a debate about whether a chain
+            is only its code, or whether defaults, distribution, and social
+            gravity matter just as much.
+          </p>
+          <p>
+            The challenge was direct: if Solana can be forked, make the fork
+            real. Within hours, GOR had appeared on Solana. Within a day,
+            builders were working through the parts that make a chain usable:
+            genesis, validator path, RPC, wallet access, and a way for people to
+            inspect what was happening.
+          </p>
+          <p>
+            That is why the story stuck. The name was strange, but the work was
+            concrete. Gorbagana became a live SVM network because the community
+            treated the joke like a build spec.
+          </p>
+        </div>
+        <ArtworkFrame
+          src={OriginInvestigationBoard}
+          alt="A Gorbagana investigation board with green monitors, pinned notes, and connected evidence strings."
+          sizes="(min-width: 1280px) 360px, calc(100vw - 64px)"
+          className="aspect-[4/5] min-h-[320px]"
+        />
       </div>
       <div className="mt-10 grid border border-white/10 sm:grid-cols-3">
         <StoryStat label="Challenge" value="48 hours" />
@@ -331,6 +352,78 @@ function StoryBlock() {
         <StoryStat label="Gas" value="GOR" />
       </div>
     </div>
+  );
+}
+
+function TimelineMediaRows({
+  items,
+}: {
+  items: readonly {
+    time: string;
+    title: string;
+    description: string;
+    image: StaticImageData;
+    imageAlt: string;
+  }[];
+}) {
+  return (
+    <div className="divide-y divide-white/10 border-t border-white/10">
+      {items.map((item) => (
+        <div
+          key={item.time}
+          className="grid gap-6 px-6 py-7 sm:px-8 lg:grid-cols-[minmax(0,1fr)_230px] xl:grid-cols-[minmax(0,1fr)_270px]"
+        >
+          <div className="max-w-2xl">
+            <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-[#4dff91] uppercase">
+              {item.time}
+            </p>
+            <h3 className="mt-3 font-heading text-2xl leading-none font-black tracking-[-0.03em] text-white sm:text-3xl">
+              {item.title}
+            </h3>
+            <p className="mt-4 text-base leading-7 text-zinc-400">
+              {item.description}
+            </p>
+          </div>
+          <ArtworkFrame
+            src={item.image}
+            alt={item.imageAlt}
+            sizes="(min-width: 1280px) 270px, (min-width: 1024px) 230px, calc(100vw - 64px)"
+            className="aspect-[4/5] min-h-[260px] lg:min-h-0"
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ArtworkFrame({
+  src,
+  alt,
+  sizes,
+  className,
+}: {
+  src: StaticImageData;
+  alt: string;
+  sizes: string;
+  className: string;
+}) {
+  return (
+    <figure
+      className={`relative overflow-hidden border border-white/10 bg-black ${className}`}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        placeholder="blur"
+        sizes={sizes}
+        className="object-cover"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,transparent_0%,rgba(0,0,0,0.1)_58%,rgba(0,0,0,0.48)_100%)]"
+      />
+    </figure>
   );
 }
 

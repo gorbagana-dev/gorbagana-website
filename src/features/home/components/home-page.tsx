@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/ssr";
 
+import CultureBanner from "@/assets/home/home-gorbagana-culture-banner.webp";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Button } from "@/components/ui/button";
 import { TextAnimate } from "@/components/ui/text-animate";
@@ -223,6 +225,59 @@ export function HomePage() {
                   reveal
                 />
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-4 sm:px-5">
+          <div className="mx-auto grid w-full max-w-[1824px] border-x border-b border-white/10 lg:grid-cols-[0.72fr_1.28fr]">
+            <div
+              data-gsap-reveal
+              className="border-b border-white/10 px-6 py-16 sm:px-10 lg:border-r lg:border-b-0 lg:py-20"
+            >
+              <p className="font-mono text-xs tracking-[0.18em] text-[#4dff91] uppercase">
+                Network culture
+              </p>
+              <AnimatedSectionHeading className="mt-5 max-w-2xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl">
+                Built in public. Running live.
+              </AnimatedSectionHeading>
+              <p className="mt-7 max-w-xl text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8">
+                Gorbagana pairs live SVM infrastructure with the public energy
+                of apps, launchpads, tools, bridge flows, and builders shipping
+                on-chain.
+              </p>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <Button
+                  asChild
+                  className="h-12 rounded-full bg-[#4dff91] px-6 font-mono text-sm font-bold text-black uppercase hover:bg-[#72ffaa]"
+                >
+                  <Link href="/ecosystem">Explore ecosystem</Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="h-12 rounded-full border-white/15 bg-white/[0.03] px-6 font-mono text-sm font-bold text-white uppercase hover:bg-white/10 hover:text-white"
+                >
+                  <Link href="/origin">Read origin</Link>
+                </Button>
+              </div>
+            </div>
+            <div
+              data-gsap-reveal
+              className="relative min-h-[260px] overflow-hidden bg-black sm:min-h-[360px] lg:min-h-[520px]"
+            >
+              <Image
+                src={CultureBanner}
+                alt="Gorbagana evidence-wall collage with green mascot portraits, network diagrams, and explorer dashboards."
+                fill
+                placeholder="blur"
+                sizes="(min-width: 1024px) 68vw, 100vw"
+                className="object-cover"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,transparent_0%,rgba(0,0,0,0.08)_55%,rgba(0,0,0,0.45)_100%)]"
+              />
             </div>
           </div>
         </section>
