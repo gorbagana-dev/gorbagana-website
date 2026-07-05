@@ -4,6 +4,7 @@ import { ArrowUpRightIcon } from "@phosphor-icons/react/ssr";
 
 import CultureBanner from "@/assets/home/home-gorbagana-culture-banner.webp";
 import HeroOscar from "@/assets/home/hero-oscar.png";
+import OutroOscarSunglasses from "@/assets/home/outro-oscar-sunglasses.png";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Button } from "@/components/ui/button";
 import { TextAnimate } from "@/components/ui/text-animate";
@@ -326,22 +327,29 @@ export function HomePage() {
         </section>
 
         <section data-origin-section className="px-4 sm:px-5">
-          <div className="relative mx-auto flex w-full max-w-[1824px] flex-col justify-between gap-8 border-x border-b border-white/10 px-6 py-16 sm:px-10 lg:flex-row lg:items-end">
-            <div>
+          <div className="relative mx-auto w-full max-w-[1824px] overflow-hidden border-x border-b border-white/10 px-6 py-16 sm:px-10 lg:py-20 xl:pr-[30rem]">
+            <div className="relative z-10 max-w-4xl">
               <p className="font-mono text-xs tracking-[0.18em] text-[#4dff91] uppercase">
                 Origin
               </p>
               <AnimatedSectionHeading className="mt-5 max-w-4xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl">
                 From a 48-hour challenge to a live chain.
               </AnimatedSectionHeading>
+              <Button
+                asChild
+                variant="outline"
+                className="mt-8 h-12 w-fit rounded-full border-white/15 bg-white/[0.03] px-6 font-mono text-sm font-bold text-white uppercase hover:bg-white/10 hover:text-white"
+              >
+                <Link href="/origin">Read origin</Link>
+              </Button>
             </div>
-            <Button
-              asChild
-              variant="outline"
-              className="h-12 w-fit rounded-full border-white/15 bg-white/[0.03] px-6 font-mono text-sm font-bold text-white uppercase hover:bg-white/10 hover:text-white"
-            >
-              <Link href="/origin">Read origin</Link>
-            </Button>
+            <Image
+              src={OutroOscarSunglasses}
+              alt=""
+              aria-hidden="true"
+              sizes="(min-width: 1536px) 450px, (min-width: 1280px) 360px, 0px"
+              className="pointer-events-none absolute right-[-2.5rem] bottom-[-0.35rem] hidden w-[clamp(21rem,26vw,30rem)] select-none opacity-80 drop-shadow-[0_22px_42px_rgba(0,0,0,0.42)] xl:block"
+            />
             <div
               aria-hidden="true"
               className="absolute right-6 bottom-0 left-6 h-px origin-left overflow-hidden bg-white/10 sm:right-10 sm:left-10"
