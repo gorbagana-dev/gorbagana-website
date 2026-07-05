@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/ssr";
 
 import CultureBanner from "@/assets/home/home-gorbagana-culture-banner.webp";
+import HeroOscar from "@/assets/home/hero-oscar.png";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Button } from "@/components/ui/button";
 import { TextAnimate } from "@/components/ui/text-animate";
@@ -111,9 +112,9 @@ export function HomePage() {
             <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(280px,316px)] xl:grid-cols-[minmax(0,1fr)_332px]">
               <div
                 data-hero-copy
-                className="min-w-0 lg:border-r lg:border-white/10"
+                className="relative isolate min-w-0 lg:border-r lg:border-white/10 xl:overflow-hidden"
               >
-                <div className="px-5 pt-12 pb-10 sm:px-8 sm:pt-16 sm:pb-12 lg:px-10 lg:pt-20">
+                <div className="relative z-10 px-5 pt-12 pb-10 sm:px-8 sm:pt-16 sm:pb-12 lg:px-10 lg:pt-20">
                   <TextAnimate
                     as="h1"
                     animation="slideUp"
@@ -126,7 +127,7 @@ export function HomePage() {
                     A Solana fork for internet-native apps
                   </TextAnimate>
                 </div>
-                <div className="border-t border-white/10 px-5 py-6 sm:px-8 lg:px-10">
+                <div className="relative z-10 border-t border-white/10 px-5 py-6 sm:px-8 lg:px-10">
                   <p className="max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8">
                     Build apps, tokens, and network services on a live
                     Solana-derived L1 with native GOR and SVM-compatible
@@ -150,6 +151,14 @@ export function HomePage() {
                     </Button>
                   </div>
                 </div>
+                <Image
+                  src={HeroOscar}
+                  alt=""
+                  aria-hidden="true"
+                  priority
+                  sizes="(min-width: 1536px) 430px, (min-width: 1280px) 330px, 0px"
+                  className="pointer-events-none absolute right-[-2rem] bottom-[-1.1rem] z-0 hidden w-[clamp(19rem,24vw,27rem)] select-none opacity-90 drop-shadow-[0_24px_46px_rgba(0,0,0,0.5)] xl:block"
+                />
               </div>
 
               <div
