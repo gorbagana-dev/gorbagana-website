@@ -5,6 +5,7 @@ import { ArrowUpRightIcon } from "@phosphor-icons/react/ssr";
 import CultureBanner from "@/assets/home/home-gorbagana-culture-banner.webp";
 import HeroOscar from "@/assets/home/hero-oscar.png";
 import OutroOscarSunglasses from "@/assets/home/outro-oscar-sunglasses.png";
+import OutroOscarSunglassesFlipped from "@/assets/home/outro-oscar-sunglasses-flipped.png";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Button } from "@/components/ui/button";
 import { TextAnimate } from "@/components/ui/text-animate";
@@ -188,8 +189,8 @@ export function HomePage() {
         </section>
 
         <section className="px-4 sm:px-5">
-          <div className="mx-auto grid w-full max-w-[1824px] gap-12 border-x border-b border-white/10 px-6 py-20 sm:px-10 lg:grid-cols-[0.95fr_1.05fr] lg:py-28">
-            <div className="max-w-2xl">
+          <div className="relative isolate mx-auto grid w-full max-w-[1824px] gap-12 overflow-hidden border-x border-b border-white/10 px-6 py-20 sm:px-10 lg:grid-cols-[0.95fr_1.05fr] lg:py-28">
+            <div className="relative z-10 max-w-2xl">
               <AnimatedSectionHeading className="max-w-2xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl">
                 A familiar SVM path for real apps.
               </AnimatedSectionHeading>
@@ -199,7 +200,14 @@ export function HomePage() {
                 community-native products.
               </p>
             </div>
-            <div className="grid border border-white/10 sm:grid-cols-2">
+            <Image
+              src={OutroOscarSunglassesFlipped}
+              alt=""
+              aria-hidden="true"
+              sizes="(min-width: 1536px) 390px, (min-width: 1280px) 330px, 0px"
+              className="pointer-events-none absolute bottom-[-0.45rem] left-[-2.75rem] z-0 hidden w-[clamp(19rem,23vw,25rem)] select-none opacity-70 drop-shadow-[0_22px_42px_rgba(0,0,0,0.42)] xl:block"
+            />
+            <div className="relative z-10 grid border border-white/10 sm:grid-cols-2">
               {whyReasons.map((reason) => (
                 <WhyReason key={reason.title} {...reason} reveal />
               ))}
