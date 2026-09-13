@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "gorbagana-website",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-09-14",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+  },
+  "images": {
+    "binding": "IMAGES",
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "gorbagana-website",
+    },
+  ],
+  // After the first deploy, attach the live domain in the Cloudflare dashboard
+  // (Workers → gorbagana-website → Domains) or uncomment these routes.
+  // Remove gorbagana.wtf from the old Pages project first or this will fail.
+  // "routes": [
+  //   { "pattern": "gorbagana.wtf", "custom_domain": true },
+  //   { "pattern": "www.gorbagana.wtf", "custom_domain": true }
+  // ]
+}

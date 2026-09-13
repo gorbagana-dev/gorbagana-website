@@ -18,6 +18,13 @@
 /.next-dev*.log
 /out/
 
+# cloudflare / opennext
+.open-next
+.wrangler
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+
 # production
 /build
 
