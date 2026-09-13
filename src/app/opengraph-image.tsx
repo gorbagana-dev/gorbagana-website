@@ -13,7 +13,7 @@ export default function Image() {
       <div
         style={{
           alignItems: "stretch",
-          background: "#050505",
+          background: "#07030F",
           color: "#ffffff",
           display: "flex",
           flexDirection: "column",
@@ -36,9 +36,9 @@ export default function Image() {
           </div>
           <div
             style={{
-              background: "#4dff91",
+              background: "#39FF14",
               borderRadius: 999,
-              color: "#050505",
+              color: "#07030F",
               fontSize: 20,
               fontWeight: 800,
               letterSpacing: 1,
@@ -69,7 +69,7 @@ export default function Image() {
           </div>
           <div
             style={{
-              color: "#a1a1aa",
+              color: "#B9AFD1",
               fontSize: 34,
               lineHeight: 1.35,
               maxWidth: 840,
@@ -83,7 +83,7 @@ export default function Image() {
           style={{
             alignItems: "center",
             borderTop: "1px solid rgba(255,255,255,0.12)",
-            color: "#a1a1aa",
+            color: "#B9AFD1",
             display: "flex",
             fontSize: 22,
             justifyContent: "space-between",
@@ -93,7 +93,7 @@ export default function Image() {
           }}
         >
           <span>gorbagana.wtf</span>
-          <span style={{ color: "#4dff91" }}>GOR</span>
+          <span style={{ color: "#39FF14" }}>GOR</span>
         </div>
       </div>
     ),

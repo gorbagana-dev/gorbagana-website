@@ -24,38 +24,38 @@ export function EcosystemDirectory({
 
   return (
     <>
-      <div className="border-b border-white/10 px-6 py-6 sm:px-8">
+      <div className="border-b border-border px-6 py-6 sm:px-8">
         <div className="flex flex-wrap gap-2">
           {categories.map((category) => (
             <Link
               key={category.label}
               href={category.href}
-              className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-2 font-mono text-[11px] font-medium text-zinc-300 uppercase transition hover:border-[#4dff91]/50 hover:bg-[#4dff91]/10 hover:text-[#4dff91]"
+              className="rounded-sm border border-border bg-white/[0.03] px-3 py-2 font-mono text-[11px] font-medium text-foreground uppercase transition hover:border-primary/50 hover:bg-primary/10 hover:text-primary"
             >
               {category.label}{" "}
-              <span className="text-zinc-600">{category.projects.length}</span>
+              <span className="text-muted-foreground">{category.projects.length}</span>
             </Link>
           ))}
         </div>
       </div>
 
-      <div className="divide-y divide-white/10">
+      <div className="divide-y divide-border">
         {categories.map((category) => (
           <section
             key={category.label}
             id={category.id}
             className="grid scroll-mt-28 lg:grid-cols-[13rem_minmax(0,1fr)]"
           >
-            <div className="border-b border-white/10 px-6 py-6 sm:px-8 lg:border-r lg:border-b-0">
-              <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-zinc-500 uppercase">
+            <div className="border-b border-border px-6 py-6 sm:px-8 lg:border-r lg:border-b-0">
+              <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
                 {category.label}
               </p>
-              <p className="mt-4 text-sm leading-6 text-zinc-400">
+              <p className="mt-4 text-sm leading-6 text-muted-foreground">
                 {category.projects.length}{" "}
                 {category.projects.length === 1 ? "project" : "projects"}
               </p>
             </div>
-            <div className="divide-y divide-white/10">
+            <div className="divide-y divide-border">
               {category.projects.map((project) => (
                 <ProjectRow key={project.label} project={project} />
               ))}
@@ -79,23 +79,23 @@ function ProjectRow({ project }: { project: EcosystemProject }) {
       className="group grid min-w-0 gap-6 px-6 py-7 transition hover:bg-white/[0.03] sm:px-8 lg:grid-cols-[minmax(13rem,0.9fr)_minmax(0,1.3fr)_minmax(6.5rem,0.3fr)] lg:items-center"
     >
       <div className="min-w-0">
-        <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-zinc-500 uppercase">
+        <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
           {project.meta}
         </p>
         <h3 className="mt-3 font-heading text-3xl leading-none font-black tracking-[-0.04em] text-white">
           {project.label}
         </h3>
       </div>
-      <p className="max-w-2xl text-sm leading-6 text-zinc-400">
+      <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
         {project.description}
       </p>
       <div className="flex min-w-0 items-center justify-between gap-4 lg:justify-end">
-        <span className="min-w-0 truncate font-mono text-xs font-medium text-zinc-500 uppercase transition group-hover:text-[#4dff91]">
+        <span className="min-w-0 truncate font-mono text-xs font-medium text-muted-foreground uppercase transition group-hover:text-primary">
           {domain}
         </span>
         <ArrowUpRightIcon
           aria-hidden="true"
-          className="size-5 shrink-0 text-zinc-500 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#4dff91]"
+          className="size-5 shrink-0 text-muted-foreground transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
           weight="bold"
         />
       </div>

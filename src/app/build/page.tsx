@@ -176,11 +176,11 @@ function BuildPathGrid() {
         <Link
           key={step.title}
           href={step.href}
-          className="group min-w-0 border-b border-white/10 px-6 py-8 transition hover:bg-white/[0.03] sm:px-8 even:sm:border-l"
+          className="group min-w-0 border-b border-border px-6 py-8 transition hover:bg-white/[0.03] sm:px-8 even:sm:border-l"
         >
           <div className="flex items-start justify-between gap-5">
             <div className="min-w-0">
-              <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-zinc-500 uppercase">
+              <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
                 {step.meta}
               </p>
               <h3 className="mt-3 font-heading text-3xl leading-none font-black tracking-[-0.04em] text-white sm:text-4xl">
@@ -189,14 +189,14 @@ function BuildPathGrid() {
             </div>
             <ArrowUpRightIcon
               aria-hidden="true"
-              className="mt-1 size-5 shrink-0 text-zinc-500 transition group-hover:text-[#4dff91]"
+              className="mt-1 size-5 shrink-0 text-muted-foreground transition group-hover:text-primary"
               weight="bold"
             />
           </div>
-          <p className="mt-5 max-w-md text-sm leading-6 text-zinc-400">
+          <p className="mt-5 max-w-md text-sm leading-6 text-muted-foreground">
             {step.description}
           </p>
-          <p className="mt-5 font-mono text-xs font-bold text-white uppercase transition group-hover:text-[#4dff91]">
+          <p className="mt-5 font-mono text-xs font-bold text-white uppercase transition group-hover:text-primary">
             {step.cta}
           </p>
         </Link>
@@ -223,8 +223,8 @@ export default function BuildPage() {
         </InteriorSection>
 
         <InteriorSection title="Why build on Gorbagana?">
-          <div className="border-b border-white/10 px-6 py-8 sm:px-8">
-            <p className="max-w-2xl text-base leading-7 text-zinc-400">
+          <div className="border-b border-border px-6 py-8 sm:px-8">
+            <p className="max-w-2xl text-base leading-7 text-muted-foreground">
               Gorbagana gives SVM builders a live network for frequent app
               actions, games, social flows, token systems, and public ecosystem
               launches.

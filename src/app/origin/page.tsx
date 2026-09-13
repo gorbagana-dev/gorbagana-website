@@ -221,8 +221,8 @@ export default function OriginPage() {
         </InteriorSection>
 
         <InteriorSection title="People">
-          <div className="border-b border-white/10 px-6 py-8 sm:px-8">
-            <p className="max-w-2xl text-base leading-7 text-zinc-400">
+          <div className="border-b border-border px-6 py-8 sm:px-8">
+            <p className="max-w-2xl text-base leading-7 text-muted-foreground">
               Gorbagana is maintained by its core team and supported by
               contributors across development, infrastructure, community, and
               ecosystem work.
@@ -286,9 +286,9 @@ function PeopleGrid({
       {groups.map((group) => (
         <div
           key={group.group}
-          className="min-w-0 border-b border-white/10 px-6 py-7 sm:px-8 even:sm:border-l"
+          className="min-w-0 border-b border-border px-6 py-7 sm:px-8 even:sm:border-l"
         >
-          <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-zinc-500 uppercase">
+          <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
             {group.group}
           </p>
           <div className="mt-5 flex flex-col items-start gap-3">
@@ -298,12 +298,12 @@ function PeopleGrid({
                 href={member.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group/link inline-flex max-w-full items-center gap-2 font-heading text-2xl leading-none font-black tracking-[-0.03em] text-white transition hover:text-[#4dff91]"
+                className="group/link inline-flex max-w-full items-center gap-2 font-heading text-2xl leading-none font-black tracking-[-0.03em] text-white transition hover:text-primary"
               >
                 <span className="truncate">{member.name}</span>
                 <XLogoIcon
                   aria-hidden="true"
-                  className="size-4 shrink-0 text-zinc-500 transition group-hover/link:text-[#4dff91]"
+                  className="size-4 shrink-0 text-muted-foreground transition group-hover/link:text-primary"
                   weight="bold"
                 />
               </a>
@@ -319,7 +319,7 @@ function StoryBlock() {
   return (
     <div className="px-6 py-8 sm:px-8 sm:py-10">
       <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_360px]">
-        <div className="max-w-3xl space-y-6 text-lg leading-8 text-zinc-300">
+        <div className="max-w-3xl space-y-6 text-lg leading-8 text-foreground">
           <p>
             Gorbagana did not begin as a foundation roadmap or a careful brand
             rollout. It started in public, inside a debate about whether a chain
@@ -346,7 +346,7 @@ function StoryBlock() {
           className="aspect-[4/5] min-h-[320px]"
         />
       </div>
-      <div className="mt-10 grid border border-white/10 sm:grid-cols-3">
+      <div className="mt-10 grid border border-border sm:grid-cols-3">
         <StoryStat label="Challenge" value="48 hours" />
         <StoryStat label="Runtime" value="SVM" />
         <StoryStat label="Gas" value="GOR" />
@@ -367,20 +367,20 @@ function TimelineMediaRows({
   }[];
 }) {
   return (
-    <div className="divide-y divide-white/10 border-t border-white/10">
+    <div className="divide-y divide-border border-t border-border">
       {items.map((item) => (
         <div
           key={item.time}
           className="grid gap-6 px-6 py-7 sm:px-8 lg:grid-cols-[minmax(0,1fr)_230px] xl:grid-cols-[minmax(0,1fr)_270px]"
         >
           <div className="max-w-2xl">
-            <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-[#4dff91] uppercase">
+            <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-primary uppercase">
               {item.time}
             </p>
             <h3 className="mt-3 font-heading text-2xl leading-none font-black tracking-[-0.03em] text-white sm:text-3xl">
               {item.title}
             </h3>
-            <p className="mt-4 text-base leading-7 text-zinc-400">
+            <p className="mt-4 text-base leading-7 text-muted-foreground">
               {item.description}
             </p>
           </div>
@@ -409,7 +409,7 @@ function ArtworkFrame({
 }) {
   return (
     <figure
-      className={`relative overflow-hidden border border-white/10 bg-black ${className}`}
+      className={`relative overflow-hidden border border-border bg-black ${className}`}
     >
       <Image
         src={src}
@@ -429,8 +429,8 @@ function ArtworkFrame({
 
 function StoryStat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="border-b border-white/10 px-5 py-5 last:border-b-0 sm:border-r sm:border-b-0 sm:last:border-r-0">
-      <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-zinc-500 uppercase">
+    <div className="border-b border-border px-5 py-5 last:border-b-0 sm:border-r sm:border-b-0 sm:last:border-r-0">
+      <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
         {label}
       </p>
       <p className="mt-3 font-heading text-3xl leading-none font-black tracking-[-0.04em] text-white">
@@ -453,12 +453,12 @@ function EssayCards({
       {items.map((item) => (
         <div
           key={item.title}
-          className="min-w-0 border-b border-white/10 px-6 py-7 sm:border-r sm:px-8 sm:last:border-r-0"
+          className="min-w-0 border-b border-border px-6 py-7 sm:border-r sm:px-8 sm:last:border-r-0"
         >
           <h3 className="font-heading text-2xl leading-none font-black tracking-[-0.03em] text-white">
             {item.title}
           </h3>
-          <p className="mt-5 text-sm leading-6 text-zinc-400">
+          <p className="mt-5 text-sm leading-6 text-muted-foreground">
             {item.description}
           </p>
         </div>
@@ -476,13 +476,13 @@ function NetworkSnapshot({
   }[];
 }) {
   return (
-    <div className="grid border-b border-white/10 sm:grid-cols-2">
+    <div className="grid border-b border-border sm:grid-cols-2">
       {items.map((item) => (
         <div
           key={item.label}
-          className="min-w-0 border-b border-white/10 px-6 py-6 sm:px-8 sm:odd:border-r"
+          className="min-w-0 border-b border-border px-6 py-6 sm:px-8 sm:odd:border-r"
         >
-          <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-zinc-500 uppercase">
+          <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
             {item.label}
           </p>
           <p className="mt-3 truncate font-heading text-2xl leading-none font-black tracking-[-0.03em] text-white">

@@ -42,12 +42,12 @@ function CopyButton({
       type="button"
       onClick={onCopy}
       className={cn(
-        "inline-flex h-9 cursor-pointer items-center justify-center gap-2 rounded-full border px-4 font-mono text-xs font-bold uppercase transition active:translate-y-px",
+        "inline-flex h-9 cursor-pointer items-center justify-center gap-2 rounded-sm border px-4 font-mono text-xs font-bold uppercase transition active:translate-y-px",
         copied
-          ? "border-[#4dff91]/50 bg-[#4dff91] text-[#050505]"
+          ? "border-primary/50 bg-primary text-background"
           : failed
             ? "border-red-400/40 bg-red-400/10 text-red-200 hover:border-red-300/60"
-          : "border-white/15 bg-white/[0.03] text-white hover:border-[#4dff91]/50 hover:text-[#4dff91]",
+          : "border-border bg-white/[0.03] text-white hover:border-primary/50 hover:text-primary",
       )}
       aria-label={label}
     >
@@ -84,20 +84,20 @@ export function EndpointGrid({ items }: { items: readonly EndpointItem[] }) {
       {items.map((item) => (
         <div
           key={item.label}
-          className="min-w-0 border-b border-white/10 px-6 py-7 sm:px-8 even:sm:border-l"
+          className="min-w-0 border-b border-border px-6 py-7 sm:px-8 even:sm:border-l"
         >
           {item.meta ? (
-            <p className="mb-2 font-mono text-[11px] font-medium tracking-[0.16em] text-zinc-500 uppercase">
+            <p className="mb-2 font-mono text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
               {item.meta}
             </p>
           ) : null}
           <h3 className="font-heading text-2xl font-black tracking-[-0.03em] text-white">
             {item.label}
           </h3>
-          <p className="mt-4 break-all font-mono text-sm leading-6 text-zinc-300">
+          <p className="mt-4 break-all font-mono text-sm leading-6 text-foreground">
             {item.value}
           </p>
-          <p className="mt-4 max-w-md text-sm leading-6 text-zinc-400">
+          <p className="mt-4 max-w-md text-sm leading-6 text-muted-foreground">
             {item.description}
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -111,7 +111,7 @@ export function EndpointGrid({ items }: { items: readonly EndpointItem[] }) {
               <Link
                 href={item.href}
                 aria-label={`Open ${item.label}`}
-                className="inline-flex h-9 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-4 font-mono text-xs font-bold text-white uppercase transition hover:border-[#4dff91]/50 hover:text-[#4dff91] active:translate-y-px"
+                className="inline-flex h-9 items-center justify-center gap-2 rounded-sm border border-border bg-white/[0.03] px-4 font-mono text-xs font-bold text-white uppercase transition hover:border-primary/50 hover:text-primary active:translate-y-px"
               >
                 Open
                 <ArrowUpRightIcon

@@ -92,7 +92,7 @@ export function NetworkStatsRail({
   return (
     <aside
       className={cn(
-        "grid border-t border-white/10",
+        "grid border-t border-border",
         isCompact
           ? "grid-cols-2 lg:grid-cols-1 lg:border-t-0"
           : "sm:grid-cols-2 lg:border-t-0",
@@ -102,28 +102,29 @@ export function NetworkStatsRail({
         <div
           key={stat.label}
           className={cn(
+            "[container-type:inline-size]",
             isCompact
-              ? "border-white/10 px-5 py-5 odd:border-r [&:nth-child(-n+2)]:border-b lg:border-r-0 lg:border-b lg:px-6 lg:py-7 lg:last:border-b-0"
-              : "min-w-0 border-b border-white/10 px-5 py-5 sm:px-6 sm:py-7 even:sm:border-l",
+              ? "border-border px-5 py-5 odd:border-r [&:nth-child(-n+2)]:border-b lg:border-r-0 lg:border-b lg:px-6 lg:py-7 lg:last:border-b-0"
+              : "min-w-0 border-b border-border px-5 py-5 sm:px-6 sm:py-7 even:sm:border-l",
             isCompact &&
               stat.label === "Slot" &&
               "col-span-2 odd:border-r-0 lg:col-span-1",
             !isCompact && stat.label === "Slot" && "sm:border-l-0",
           )}
         >
-          <p className="font-mono text-[11px] tracking-[0.16em] text-zinc-500 uppercase">
+          <p className="font-mono text-[11px] tracking-[0.16em] text-muted-foreground uppercase">
             {stat.label}
           </p>
           <p
             className={cn(
-              "mt-3 font-heading leading-none font-black tracking-[-0.035em] text-white tabular-nums",
+              "mt-3 font-mono leading-none font-black tracking-[-0.035em] text-white tabular-nums",
               isCompact
                 ? stat.label === "Slot"
                   ? "text-[clamp(2rem,12vw,3rem)] sm:text-4xl lg:text-5xl"
                   : "text-3xl sm:text-4xl lg:text-5xl"
                 : stat.size === "large"
-                  ? "text-[clamp(2rem,11vw,3.75rem)] sm:text-[clamp(2.4rem,4.5vw,3.75rem)]"
-                  : "text-4xl sm:text-5xl",
+                  ? "text-[clamp(1.25rem,12cqi,3rem)]"
+                  : "text-[clamp(1.25rem,12cqi,3rem)]",
             )}
           >
             {networkStatus.data ? stat.renderValue(networkStatus.data) : "..."}

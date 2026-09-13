@@ -257,15 +257,15 @@ function PathGrid({ links }: { links: typeof pathLinks }) {
         <Link
           key={link.label}
           href={link.href}
-          className="group flex min-h-56 min-w-0 flex-col justify-between border-b border-white/10 px-6 py-7 transition hover:bg-white/[0.03] sm:px-8 even:sm:border-l"
+          className="group flex min-h-56 min-w-0 flex-col justify-between border-b border-border px-6 py-7 transition hover:bg-white/[0.03] sm:px-8 even:sm:border-l"
         >
           <div className="flex items-start justify-between gap-5">
-            <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-zinc-500 uppercase">
+            <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
               {link.meta}
             </p>
             <ArrowUpRightIcon
               aria-hidden="true"
-              className="mt-1 size-5 shrink-0 text-zinc-500 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#4dff91]"
+              className="mt-1 size-5 shrink-0 text-muted-foreground transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
               weight="bold"
             />
           </div>
@@ -273,7 +273,7 @@ function PathGrid({ links }: { links: typeof pathLinks }) {
             <h3 className="font-heading text-3xl leading-none font-black tracking-[-0.04em] text-white sm:text-4xl">
               {link.label}
             </h3>
-            <p className="mt-5 max-w-md text-sm leading-6 text-zinc-400">
+            <p className="mt-5 max-w-md text-sm leading-6 text-muted-foreground">
               {link.description}
             </p>
           </div>
@@ -290,15 +290,15 @@ function ChannelGrid({ links }: { links: typeof channelLinks }) {
         <Link
           key={link.label}
           href={link.href}
-          className="group flex min-h-52 min-w-0 flex-col justify-between border-b border-white/10 px-6 py-7 transition hover:bg-white/[0.03] sm:px-8 lg:border-r lg:last:border-r-0"
+          className="group flex min-h-52 min-w-0 flex-col justify-between border-b border-border px-6 py-7 transition hover:bg-white/[0.03] sm:px-8 lg:border-r lg:last:border-r-0"
         >
           <div className="flex items-start justify-between gap-5">
-            <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-zinc-500 uppercase">
+            <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
               {link.meta}
             </p>
             <ArrowUpRightIcon
               aria-hidden="true"
-              className="mt-1 size-5 shrink-0 text-zinc-500 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#4dff91]"
+              className="mt-1 size-5 shrink-0 text-muted-foreground transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
               weight="bold"
             />
           </div>
@@ -306,7 +306,7 @@ function ChannelGrid({ links }: { links: typeof channelLinks }) {
             <h3 className="font-heading text-3xl leading-none font-black tracking-[-0.04em] text-white">
               {link.label}
             </h3>
-            <p className="mt-5 max-w-md text-sm leading-6 text-zinc-400">
+            <p className="mt-5 max-w-md text-sm leading-6 text-muted-foreground">
               {link.description}
             </p>
           </div>

@@ -2,13 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/ssr";
 
-import CultureBanner from "@/assets/home/home-gorbagana-culture-banner.webp";
-import HeroOscar from "@/assets/home/hero-oscar.png";
-import OutroOscarSunglasses from "@/assets/home/outro-oscar-sunglasses.png";
-import OutroOscarSunglassesFlipped from "@/assets/home/outro-oscar-sunglasses-flipped.png";
-import { BorderBeam } from "@/components/ui/border-beam";
+import CultureBanner from "../../../../design-system/gorbagana/assets/brand/gorbagana-banner.png";
+import BrandPortrait from "../../../../design-system/gorbagana/assets/brand/gorbagana-pfp.png";
 import { Button } from "@/components/ui/button";
-import { TextAnimate } from "@/components/ui/text-animate";
 import { ecosystemProjects, type EcosystemProject } from "@/config/ecosystem";
 import { gorbaganaNetwork } from "@/config/network";
 import { siteConfig } from "@/config/site";
@@ -110,118 +106,60 @@ export function HomePage() {
 
       <HomeMotionRoot>
         <section data-hero-stage className="px-4 pt-20 sm:px-5">
-          <div className="mx-auto w-full max-w-[1824px] border-x border-b border-white/10">
-            <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(280px,316px)] xl:grid-cols-[minmax(0,1fr)_332px]">
-              <div
-                data-hero-copy
-                className="relative isolate min-w-0 lg:border-r lg:border-white/10 xl:overflow-hidden"
-              >
-                <div className="relative z-10 px-5 pt-12 pb-10 sm:px-8 sm:pt-16 sm:pb-12 lg:px-10 lg:pt-20">
-                  <TextAnimate
-                    as="h1"
-                    animation="slideUp"
-                    by="word"
-                    duration={0.56}
-                    startOnView={false}
-                    once
-                    className="max-w-[1100px] font-heading text-[clamp(3rem,5.9vw,6.7rem)] leading-[0.92] font-black tracking-[-0.052em] text-white"
-                  >
-                    A Solana fork for internet-native apps
-                  </TextAnimate>
+          <div className="brand-hero mx-auto w-full max-w-[1440px] border-x border-b border-border">
+            <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
+              <div className="brand-hero-copy min-w-0 px-6 py-12 sm:px-10 lg:py-20">
+                <p className="brand-sticker mb-8">Built by degens for dreamers</p>
+                <h1 className="font-heading text-[clamp(3rem,5.5vw,5.5rem)] text-primary">Trash chain.<br />Serious builders.</h1>
+                <p className="mt-7 max-w-xl text-lg leading-8 text-muted-foreground">A Solana fork for internet-native apps. Build on a live Solana-derived L1 with native GOR and SVM-compatible tooling.</p>
+                <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                  <Button asChild size="lg" className="h-12 px-6 uppercase"><Link href="/build">Start building <ArrowUpRightIcon aria-hidden="true" /></Link></Button>
+                  <Button asChild size="lg" variant="outline" className="h-12 px-6 uppercase"><Link href="/network">View network</Link></Button>
                 </div>
-                <div className="relative z-10 border-t border-white/10 px-5 py-6 sm:px-8 lg:px-10">
-                  <p className="max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8">
-                    Build apps, tokens, and network services on a live
-                    Solana-derived L1 with native GOR and SVM-compatible
-                    tooling.
-                  </p>
-                  <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                    <Button
-                      asChild
-                      size="lg"
-                      className="h-12 rounded-full bg-[#4dff91] px-6 font-mono text-sm font-bold text-black uppercase hover:bg-[#72ffaa]"
-                    >
-                      <Link href="/build">Start building</Link>
-                    </Button>
-                    <Button
-                      asChild
-                      size="lg"
-                      variant="outline"
-                      className="h-12 rounded-full border-white/15 bg-white/[0.03] px-6 font-mono text-sm font-bold text-white uppercase hover:bg-white/10 hover:text-white"
-                    >
-                      <Link href="/network">View network</Link>
-                    </Button>
-                  </div>
-                </div>
-                <Image
-                  src={HeroOscar}
-                  alt=""
-                  aria-hidden="true"
-                  priority
-                  sizes="(min-width: 1536px) 430px, (min-width: 1280px) 330px, 0px"
-                  className="pointer-events-none absolute right-[-2rem] bottom-[-1.1rem] z-0 hidden w-[clamp(19rem,24vw,27rem)] select-none opacity-90 drop-shadow-[0_24px_46px_rgba(0,0,0,0.5)] xl:block"
-                />
               </div>
-
-              <div
-                data-hero-stats
-                className="relative min-w-0 overflow-hidden lg:border-t lg:border-white/10"
-              >
-                <NetworkStatsRail variant="compact" />
-                <BorderBeam
-                  borderWidth={1}
-                  colorFrom="#4dff91"
-                  colorTo="#d7ffe5"
-                  duration={10}
-                  size={120}
-                />
+              <div className="flex items-center justify-center p-6 sm:p-10">
+                <Image src={BrandPortrait} alt="Green Gorbagana bin character against a neon synthwave sunset." priority sizes="(min-width: 1024px) 40vw, 90vw" className="brand-art h-auto w-full max-w-[480px]" />
               </div>
             </div>
+            <div className="border-t border-border bg-card [&>aside]:lg:grid-cols-4"><NetworkStatsRail variant="full" /></div>
           </div>
         </section>
 
         <section className="px-4 sm:px-5">
-          <div className="mx-auto grid w-full max-w-[1824px] divide-y divide-white/10 border-x border-b border-white/10 md:grid-cols-2 md:divide-x md:divide-y-0 xl:grid-cols-4">
+          <div className="mx-auto grid w-full max-w-[1440px] divide-y divide-border border-x border-b border-border md:grid-cols-2 md:divide-x md:divide-y-0 xl:grid-cols-4">
             {actionLinks.map((actionLink) => (
-              <ActionLink key={actionLink.label} {...actionLink} reveal />
+              <ActionLink key={actionLink.label} {...actionLink} />
             ))}
           </div>
         </section>
 
         <section className="px-4 sm:px-5">
-          <div className="relative isolate mx-auto grid w-full max-w-[1824px] gap-12 overflow-hidden border-x border-b border-white/10 px-6 py-20 sm:px-10 lg:grid-cols-[0.95fr_1.05fr] lg:py-28">
+          <div className="relative isolate mx-auto grid w-full max-w-[1440px] gap-12 overflow-hidden border-x border-b border-border px-6 py-20 sm:px-10 lg:grid-cols-[0.95fr_1.05fr] lg:py-28">
             <div className="relative z-10 max-w-2xl">
-              <AnimatedSectionHeading className="max-w-2xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl">
+              <SectionHeading className="max-w-2xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl">
                 A familiar SVM path for real apps.
-              </AnimatedSectionHeading>
-              <p className="mt-7 text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8">
+              </SectionHeading>
+              <p className="mt-7 text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
                 Gorbagana keeps the Solana-style developer surface while giving
                 builders a live network for apps, tokens, games, tools, and
                 community-native products.
               </p>
             </div>
-            <Image
-              src={OutroOscarSunglassesFlipped}
-              alt=""
-              aria-hidden="true"
-              sizes="(min-width: 1536px) 390px, (min-width: 1280px) 330px, 0px"
-              className="pointer-events-none absolute bottom-[-0.45rem] left-[-2.75rem] z-0 hidden w-[clamp(19rem,23vw,25rem)] select-none opacity-70 drop-shadow-[0_22px_42px_rgba(0,0,0,0.42)] xl:block"
-            />
-            <div className="relative z-10 grid border border-white/10 sm:grid-cols-2">
+            <div className="relative z-10 grid border border-border sm:grid-cols-2">
               {whyReasons.map((reason) => (
-                <WhyReason key={reason.title} {...reason} reveal />
+                <WhyReason key={reason.title} {...reason} />
               ))}
             </div>
           </div>
         </section>
 
         <section className="px-4 sm:px-5">
-          <div className="mx-auto grid w-full max-w-[1824px] gap-12 border-x border-b border-white/10 px-6 py-20 sm:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:py-28">
+          <div className="mx-auto grid w-full max-w-[1440px] gap-12 border-x border-b border-border px-6 py-20 sm:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:py-28">
             <div className="min-w-0">
-              <AnimatedSectionHeading className="max-w-4xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
+              <SectionHeading className="max-w-4xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
                 Find what is live on Gorbagana.
-              </AnimatedSectionHeading>
-              <p className="mt-7 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8">
+              </SectionHeading>
+              <p className="mt-7 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
                 Apps, launchpads, privacy tools, and network services already
                 running on Gorbagana.
               </p>
@@ -229,18 +167,17 @@ export function HomePage() {
                 <Button
                   asChild
                   variant="outline"
-                  className="h-12 rounded-full border-white/15 bg-white/[0.03] px-6 font-mono text-sm font-bold text-white uppercase hover:bg-white/10 hover:text-white"
+                  className="h-12 rounded-sm border-border bg-white/[0.03] px-6 font-mono text-sm font-bold text-white uppercase hover:bg-white/10 hover:text-white"
                 >
                   <Link href="/ecosystem">View ecosystem</Link>
                 </Button>
               </div>
             </div>
-            <div className="grid min-w-0 grid-cols-1 border border-white/10 sm:grid-cols-2">
+            <div className="grid min-w-0 grid-cols-1 border border-border sm:grid-cols-2">
               {ecosystemProjects.map((project) => (
                 <EcosystemPreview
                   key={project.label}
                   project={project}
-                  reveal
                 />
               ))}
             </div>
@@ -248,18 +185,17 @@ export function HomePage() {
         </section>
 
         <section className="px-4 sm:px-5">
-          <div className="mx-auto grid w-full max-w-[1824px] border-x border-b border-white/10 lg:grid-cols-[0.72fr_1.28fr]">
+          <div className="mx-auto grid w-full max-w-[1440px] border-x border-b border-border lg:grid-cols-[0.72fr_1.28fr]">
             <div
-              data-gsap-reveal
-              className="border-b border-white/10 px-6 py-16 sm:px-10 lg:border-r lg:border-b-0 lg:py-20"
+              className="border-b border-border px-6 py-16 sm:px-10 lg:border-r lg:border-b-0 lg:py-20"
             >
-              <p className="font-mono text-xs tracking-[0.18em] text-[#4dff91] uppercase">
+              <p className="font-mono text-xs tracking-[0.18em] text-primary uppercase">
                 Network culture
               </p>
-              <AnimatedSectionHeading className="mt-5 max-w-2xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl">
+              <SectionHeading className="mt-5 max-w-2xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl">
                 Built in public. Running live.
-              </AnimatedSectionHeading>
-              <p className="mt-7 max-w-xl text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8">
+              </SectionHeading>
+              <p className="mt-7 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
                 Gorbagana pairs live SVM infrastructure with the public energy
                 of apps, launchpads, tools, bridge flows, and builders shipping
                 on-chain.
@@ -267,30 +203,28 @@ export function HomePage() {
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Button
                   asChild
-                  className="h-12 rounded-full bg-[#4dff91] px-6 font-mono text-sm font-bold text-black uppercase hover:bg-[#72ffaa]"
+                  className="h-12 rounded-sm bg-primary px-6 font-mono text-sm font-bold text-black uppercase hover:bg-primary-hover"
                 >
                   <Link href="/ecosystem">Explore ecosystem</Link>
                 </Button>
                 <Button
                   asChild
                   variant="outline"
-                  className="h-12 rounded-full border-white/15 bg-white/[0.03] px-6 font-mono text-sm font-bold text-white uppercase hover:bg-white/10 hover:text-white"
+                  className="h-12 rounded-sm border-border bg-white/[0.03] px-6 font-mono text-sm font-bold text-white uppercase hover:bg-white/10 hover:text-white"
                 >
                   <Link href="/origin">Read origin</Link>
                 </Button>
               </div>
             </div>
             <div
-              data-gsap-reveal
               className="relative min-h-[260px] overflow-hidden bg-black sm:min-h-[360px] lg:min-h-[520px]"
             >
               <Image
                 src={CultureBanner}
-                alt="Gorbagana evidence-wall collage with green mascot portraits, network diagrams, and explorer dashboards."
+                alt="Gorbagana graffiti wordmark, green bin character, and neon city with the slogans Trash people, better people and Built by degens for dreamers."
                 fill
-                placeholder="blur"
                 sizes="(min-width: 1024px) 68vw, 100vw"
-                className="object-cover"
+                className="object-contain"
               />
               <div
                 aria-hidden="true"
@@ -301,26 +235,26 @@ export function HomePage() {
         </section>
 
         <section className="px-4 sm:px-5" id="use-gorbagana">
-          <div className="mx-auto grid w-full max-w-[1824px] border-x border-b border-white/10 lg:grid-cols-[0.86fr_1.14fr]">
-            <div className="border-b border-white/10 px-6 py-16 sm:px-10 lg:border-r lg:border-b-0 lg:py-20">
-              <AnimatedSectionHeading className="max-w-2xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl">
+          <div className="mx-auto grid w-full max-w-[1440px] border-x border-b border-border lg:grid-cols-[0.86fr_1.14fr]">
+            <div className="border-b border-border px-6 py-16 sm:px-10 lg:border-r lg:border-b-0 lg:py-20">
+              <SectionHeading className="max-w-2xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl">
                 Start using Gorbagana.
-              </AnimatedSectionHeading>
-              <p className="mt-7 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8">
+              </SectionHeading>
+              <p className="mt-7 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
                 Bridge GOR, connect Backpack, open live apps, and verify
                 activity with the explorer.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Button
                   asChild
-                  className="h-12 rounded-full bg-[#4dff91] px-6 font-mono text-sm font-bold text-black uppercase hover:bg-[#72ffaa]"
+                  className="h-12 rounded-sm bg-primary px-6 font-mono text-sm font-bold text-black uppercase hover:bg-primary-hover"
                 >
                   <Link href={gorbaganaNetwork.urls.bridge}>Bridge GOR</Link>
                 </Button>
                 <Button
                   asChild
                   variant="outline"
-                  className="h-12 rounded-full border-white/15 bg-white/[0.03] px-6 font-mono text-sm font-bold text-white uppercase hover:bg-white/10 hover:text-white"
+                  className="h-12 rounded-sm border-border bg-white/[0.03] px-6 font-mono text-sm font-bold text-white uppercase hover:bg-white/10 hover:text-white"
                 >
                   <Link href="/ecosystem">View apps</Link>
                 </Button>
@@ -328,44 +262,28 @@ export function HomePage() {
             </div>
             <div className="grid sm:grid-cols-2">
               {useLinks.map((useLink) => (
-                <UseLink key={useLink.label} {...useLink} reveal />
+                <UseLink key={useLink.label} {...useLink} />
               ))}
             </div>
           </div>
         </section>
 
         <section data-origin-section className="px-4 sm:px-5">
-          <div className="relative mx-auto w-full max-w-[1824px] overflow-hidden border-x border-b border-white/10 px-6 py-16 sm:px-10 lg:py-20 xl:pr-[30rem]">
+          <div className="relative mx-auto w-full max-w-[1440px] overflow-hidden border-x border-b border-border px-6 py-16 sm:px-10 lg:py-20">
             <div className="relative z-10 max-w-4xl">
-              <p className="font-mono text-xs tracking-[0.18em] text-[#4dff91] uppercase">
+              <p className="font-mono text-xs tracking-[0.18em] text-primary uppercase">
                 Origin
               </p>
-              <AnimatedSectionHeading className="mt-5 max-w-4xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl">
+              <SectionHeading className="mt-5 max-w-4xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl">
                 From a 48-hour challenge to a live chain.
-              </AnimatedSectionHeading>
+              </SectionHeading>
               <Button
                 asChild
                 variant="outline"
-                className="mt-8 h-12 w-fit rounded-full border-white/15 bg-white/[0.03] px-6 font-mono text-sm font-bold text-white uppercase hover:bg-white/10 hover:text-white"
+                className="mt-8 h-12 w-fit rounded-sm border-border bg-white/[0.03] px-6 font-mono text-sm font-bold text-white uppercase hover:bg-white/10 hover:text-white"
               >
                 <Link href="/origin">Read origin</Link>
               </Button>
-            </div>
-            <Image
-              src={OutroOscarSunglasses}
-              alt=""
-              aria-hidden="true"
-              sizes="(min-width: 1536px) 450px, (min-width: 1280px) 360px, 0px"
-              className="pointer-events-none absolute right-[-2.5rem] bottom-[-0.35rem] hidden w-[clamp(21rem,26vw,30rem)] select-none opacity-80 drop-shadow-[0_22px_42px_rgba(0,0,0,0.42)] xl:block"
-            />
-            <div
-              aria-hidden="true"
-              className="absolute right-6 bottom-0 left-6 h-px origin-left overflow-hidden bg-white/10 sm:right-10 sm:left-10"
-            >
-              <div
-                data-origin-progress
-                className="h-full w-full origin-left scale-x-0 bg-[#4dff91]"
-              />
             </div>
           </div>
         </section>
@@ -375,7 +293,7 @@ export function HomePage() {
   );
 }
 
-function AnimatedSectionHeading({
+function SectionHeading({
   children,
   className,
 }: {
@@ -383,16 +301,9 @@ function AnimatedSectionHeading({
   className: string;
 }) {
   return (
-    <TextAnimate
-      as="h2"
-      animation="slideUp"
-      by="word"
-      duration={0.46}
-      once
-      className={className}
-    >
+    <h2 className={className}>
       {children}
-    </TextAnimate>
+    </h2>
   );
 }
 
@@ -401,27 +312,24 @@ function UseLink({
   meta,
   href,
   description,
-  reveal = false,
 }: {
   label: string;
   meta: string;
   href: string;
   description: string;
-  reveal?: boolean;
 }) {
   return (
     <Link
       href={href}
-      data-gsap-reveal={reveal ? "" : undefined}
-      className="group flex min-h-52 min-w-0 flex-col justify-between border-b border-white/10 p-6 transition last:border-b-0 hover:bg-white/[0.03] sm:border-b-0 sm:p-8 sm:odd:border-r sm:[&:nth-child(-n+2)]:border-b"
+      className="group flex min-h-52 min-w-0 flex-col justify-between border-b border-border p-6 transition last:border-b-0 hover:bg-white/[0.03] sm:border-b-0 sm:p-8 sm:odd:border-r sm:[&:nth-child(-n+2)]:border-b"
     >
       <div className="flex min-w-0 items-start justify-between gap-4">
-        <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-zinc-500 uppercase">
+        <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
           {meta}
         </p>
         <ArrowUpRightIcon
           aria-hidden="true"
-          className="size-5 shrink-0 text-zinc-500 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#4dff91]"
+          className="size-5 shrink-0 text-muted-foreground transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
           weight="bold"
         />
       </div>
@@ -429,7 +337,7 @@ function UseLink({
         <h3 className="font-heading text-2xl leading-none font-black tracking-[-0.03em] text-white">
           {label}
         </h3>
-        <p className="mt-4 max-w-md text-sm leading-6 text-zinc-400">
+        <p className="mt-4 max-w-md text-sm leading-6 text-muted-foreground">
           {description}
         </p>
       </div>
@@ -441,25 +349,22 @@ function WhyReason({
   title,
   meta,
   description,
-  reveal = false,
 }: {
   title: string;
   meta: string;
   description: string;
-  reveal?: boolean;
 }) {
   return (
     <div
-      data-gsap-reveal={reveal ? "" : undefined}
-      className="min-w-0 border-b border-white/10 px-6 py-7 last:border-b-0 sm:min-h-56 sm:border-b-0 sm:px-8 sm:even:border-l sm:[&:nth-child(-n+2)]:border-b"
+      className="min-w-0 border-b border-border px-6 py-7 last:border-b-0 sm:min-h-56 sm:border-b-0 sm:px-8 sm:even:border-l sm:[&:nth-child(-n+2)]:border-b"
     >
-      <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-zinc-500 uppercase">
+      <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
         {meta}
       </p>
       <h3 className="mt-4 font-heading text-2xl leading-none font-black tracking-[-0.03em] text-white">
         {title}
       </h3>
-      <p className="mt-5 max-w-md text-sm leading-6 text-zinc-400">
+      <p className="mt-5 max-w-md text-sm leading-6 text-muted-foreground">
         {description}
       </p>
     </div>
@@ -468,24 +373,21 @@ function WhyReason({
 
 function EcosystemPreview({
   project,
-  reveal = false,
 }: {
   project: EcosystemProject;
-  reveal?: boolean;
 }) {
   return (
     <Link
       href={project.href}
-      data-gsap-reveal={reveal ? "" : undefined}
-      className="group flex min-h-40 min-w-0 flex-col border-b border-white/10 p-5 transition last:border-b-0 hover:bg-white/[0.03] sm:min-h-44 sm:border-b-0 sm:odd:border-r sm:[&:nth-child(-n+2)]:border-b"
+      className="group flex min-h-40 min-w-0 flex-col border-b border-border p-5 transition last:border-b-0 hover:bg-white/[0.03] sm:min-h-44 sm:border-b-0 sm:odd:border-r sm:[&:nth-child(-n+2)]:border-b"
     >
       <div className="flex min-w-0 items-start justify-between gap-4">
-        <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-zinc-500 uppercase">
+        <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
           {project.meta}
         </p>
         <ArrowUpRightIcon
           aria-hidden="true"
-          className="size-5 shrink-0 text-zinc-500 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#4dff91]"
+          className="size-5 shrink-0 text-muted-foreground transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
           weight="bold"
         />
       </div>
@@ -493,7 +395,7 @@ function EcosystemPreview({
         <h3 className="font-heading text-2xl leading-none font-black tracking-[-0.03em] text-white">
           {project.label}
         </h3>
-        <p className="mt-3 max-w-md text-sm leading-6 break-words text-zinc-400">
+        <p className="mt-3 max-w-md text-sm leading-6 break-words text-muted-foreground">
           {project.description}
         </p>
       </div>
@@ -506,23 +408,20 @@ function ActionLink({
   meta,
   href,
   description,
-  reveal = false,
 }: {
   label: string;
   meta: string;
   href: string;
   description: string;
-  reveal?: boolean;
 }) {
   return (
     <Link
       href={href}
-      data-gsap-reveal={reveal ? "" : undefined}
       className="group block min-h-40 min-w-0 px-6 py-7 transition hover:bg-white/[0.03] sm:px-10 lg:px-6"
     >
       <div className="flex min-w-0 items-start justify-between gap-5">
         <div className="min-w-0">
-          <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-zinc-500 uppercase">
+          <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
             {meta}
           </p>
           <h2 className="mt-2 font-heading text-xl font-black tracking-[-0.02em] text-white">
@@ -531,11 +430,11 @@ function ActionLink({
         </div>
         <ArrowUpRightIcon
           aria-hidden="true"
-          className="mt-1 size-5 shrink-0 text-zinc-500 transition group-hover:text-[#4dff91]"
+          className="mt-1 size-5 shrink-0 text-muted-foreground transition group-hover:text-primary"
           weight="bold"
         />
       </div>
-      <p className="mt-6 max-w-sm text-sm leading-6 text-zinc-400">
+      <p className="mt-6 max-w-sm text-sm leading-6 text-muted-foreground">
         {description}
       </p>
     </Link>

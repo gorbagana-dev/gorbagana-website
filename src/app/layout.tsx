@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, Inter, Roboto_Mono } from "next/font/google";
+import { Permanent_Marker, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 
 import { routeUrl } from "@/config/routes";
 import { siteConfig } from "@/config/site";
@@ -7,19 +7,20 @@ import { cn } from "@/lib/utils";
 
 import "./globals.css";
 
-const inter = Inter({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-space-grotesk",
 });
 
-const archivo = Archivo({
+const permanentMarker = Permanent_Marker({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-archivo",
+  variable: "--font-permanent-marker",
 });
 
-const robotoMono = Roboto_Mono({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-roboto-mono",
+  variable: "--font-jetbrains-mono",
 });
 
 export const metadata: Metadata = {
@@ -79,10 +80,10 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        "font-sans",
-        inter.variable,
-        archivo.variable,
-        robotoMono.variable,
+        "dark font-sans",
+        spaceGrotesk.variable,
+        permanentMarker.variable,
+        jetbrainsMono.variable,
       )}
     >
       <body>{children}</body>

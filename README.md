@@ -16,3 +16,8 @@ npm run lint
 npm run typecheck
 npm run build
 ```
+
+
+## Design reference
+
+See [DESIGN.md](DESIGN.md) for the website style and [the original design system](design-system/gorbagana/readme.md) for assets, tokens, guidelines, and component examples.

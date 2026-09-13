@@ -2,12 +2,15 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@import "../../design-system/gorbagana/tokens/colors.css";
+@import "../../design-system/gorbagana/tokens/effects.css";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --font-heading: var(--font-archivo);
-    --font-sans: var(--font-inter);
-    --font-mono: var(--font-roboto-mono);
+    --font-heading: var(--font-permanent-marker);
+    --font-sans: var(--font-space-grotesk);
+    --font-mono: var(--font-jetbrains-mono);
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -33,6 +36,9 @@
     --color-secondary: var(--secondary);
     --color-primary-foreground: var(--primary-foreground);
     --color-primary: var(--primary);
+    --color-primary-hover: var(--brand-primary-hover);
+    --color-brand-pink: var(--pink-500);
+    --color-brand-cyan: var(--cyan-500);
     --color-popover-foreground: var(--popover-foreground);
     --color-popover: var(--popover);
     --color-card-foreground: var(--card-foreground);
@@ -49,38 +55,38 @@
 }
 
 :root {
-    --background: oklch(0.03 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.06 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.06 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.886 0.197 150.43);
-    --primary-foreground: oklch(0.126 0 0);
-    --secondary: oklch(0.16 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.16 0 0);
-    --muted-foreground: oklch(0.62 0 0);
-    --accent: oklch(0.886 0.197 150.43);
-    --accent-foreground: oklch(0.126 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 14%);
-    --ring: oklch(0.886 0.197 150.43);
+    --background: var(--bg-page);
+    --foreground: var(--text-primary);
+    --card: var(--surface-1);
+    --card-foreground: var(--text-primary);
+    --popover: var(--surface-raised);
+    --popover-foreground: var(--text-primary);
+    --primary: var(--brand-primary);
+    --primary-foreground: var(--text-on-acid);
+    --secondary: var(--surface-2);
+    --secondary-foreground: var(--text-primary);
+    --muted: var(--surface-2);
+    --muted-foreground: var(--text-secondary);
+    --accent: var(--surface-3);
+    --accent-foreground: var(--cyan-500);
+    --destructive: var(--status-danger);
+    --border: var(--border-default);
+    --input: var(--border-default);
+    --ring: var(--border-focus);
     --chart-1: oklch(0.886 0.197 150.43);
     --chart-2: oklch(0.52 0 0);
     --chart-3: oklch(0.72 0 0);
     --chart-4: oklch(0.84 0 0);
     --chart-5: oklch(0.9 0 0);
-    --radius: 0.75rem;
-    --sidebar: oklch(0.06 0 0);
+    --radius: 0.375rem;
+    --sidebar: var(--surface-1);
     --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.886 0.197 150.43);
+    --sidebar-primary: var(--brand-primary);
     --sidebar-primary-foreground: oklch(0.126 0 0);
     --sidebar-accent: oklch(0.16 0 0);
     --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.886 0.197 150.43);
+    --sidebar-border: var(--border-default);
+    --sidebar-ring: var(--border-focus);
 }
 
 .dark {
@@ -122,3 +128,29 @@
     transition-duration: 0.001ms !important;
   }
 }
+
+/* Gorbagana website adaptation. Canonical palette/effects live in design-system/. */
+@layer base {
+  html { scroll-padding-top: 6rem; }
+  body { background: var(--bg-page); }
+  h1, h2 { text-transform: uppercase; text-wrap: balance; }
+  h3 { font-family: var(--font-space-grotesk), sans-serif; }
+  ::selection { background: var(--pink-500); color: white; }
+  :focus-visible { outline: 2px solid var(--border-focus); outline-offset: 4px; }
+}
+.font-heading { font-weight: 400; letter-spacing: -.02em; line-height: 1.12; }
+h3.font-heading { font-family: var(--font-space-grotesk), sans-serif; font-weight: 700; }
+[data-slot="button"] { border-radius: 4px; border-width: 2px; font-family: var(--font-space-grotesk), sans-serif; font-weight: 700; letter-spacing: .06em; transition-duration: var(--dur-base); }
+[data-slot="button"][data-variant="default"] { box-shadow: var(--glow-acid); }
+[data-slot="button"][data-variant="default"]:hover { box-shadow: var(--glow-acid-strong); }
+[data-slot="button"][data-variant="outline"] { border-color: var(--pink-500); background: var(--surface-1); }
+[data-slot="button"][data-variant="outline"]:hover { background: var(--surface-2); box-shadow: var(--glow-pink); }
+.brand-wordmark { color: var(--acid-500); text-shadow: var(--text-glow-acid); text-transform: uppercase; }
+.brand-hero { background: var(--gradient-void); }
+.brand-hero-copy { background-image: var(--bg-grid); background-size: var(--bg-grid-size); }
+.brand-sticker { display: inline-block; padding: 8px 12px; border: 2px solid var(--ink-900); border-radius: 2px; background: var(--paper-100); color: var(--ink-900); box-shadow: var(--shadow-sticker); font-family: var(--font-permanent-marker), cursive; text-transform: uppercase; transform: rotate(-2deg); }
+.brand-art { border: 2px solid var(--pink-500); border-radius: 16px; box-shadow: var(--glow-pink); }
+.interior-hero { background: var(--gradient-void); border-bottom: 2px solid var(--pink-500); }
+footer { background: var(--surface-1); }
+@media (max-width: 640px) { h1.font-heading { font-size: clamp(2.5rem, 10vw, 3.5rem); } }
+@source not "../../design-system";
