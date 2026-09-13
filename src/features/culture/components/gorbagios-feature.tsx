@@ -1,15 +1,21 @@
+import Capsule from "../../../../design-system/gorbagana/assets/gorbagios/gorbagio-2863.jpg";
+import Mattress from "../../../../design-system/gorbagana/assets/gorbagios/gorbagio-147.jpg";
+import CerealBox from "../../../../design-system/gorbagana/assets/gorbagios/gorbagio-2989.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/ssr";
-import Bin from "../../../../design-system/gorbagana/assets/gorbagios/gorbagio-1616.jpg";
-import Bubblegum from "../../../../design-system/gorbagana/assets/gorbagios/gorbagio-1052.jpg";
+import TealBin from "../../../../design-system/gorbagana/assets/gorbagios/gorbagio-2702.jpg";
+import BlueBin from "../../../../design-system/gorbagana/assets/gorbagios/gorbagio-565.jpg";
 import Gray from "../../../../design-system/gorbagana/assets/gorbagios/gorbagio-153.jpg";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 
 const characters = [
-  { id: 1616, image: Bin, alt: "Green-furred Gorbagio in a black bin with a sleepy expression." },
-  { id: 1052, image: Bubblegum, alt: "Green-furred bin Gorbagio blowing pink bubblegum and holding a paper plane." },
+  { id: 2702, image: TealBin, alt: "Teal-bin Gorbagio with green fur, a pale cream face, and golden eyes." },
+  { id: 565, image: BlueBin, alt: "Blue-bin Gorbagio with a pale face, golden eyes, and a bright green crown." },
+  { id: 2863, image: Capsule, alt: "Green and white capsule Gorbagio with a cream face and a small fanged smile." },
+  { id: 147, image: Mattress, alt: "Beige mattress Gorbagio with a bright pink face and pink horns." },
+  { id: 2989, image: CerealBox, alt: "Orange cereal-box Gorbagio with a pink laughing face." },
   { id: 153, image: Gray, alt: "Rounded gray Gorbagio wearing a green and white cap." },
 ];
 
@@ -30,7 +36,7 @@ export function GorbagiosFeature() {
       <div className="mx-auto w-full max-w-[600px]">
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
           {characters.map((character) => (
-            <figure key={character.id} className="overflow-hidden rounded-md border border-border bg-background last:col-span-2 last:mx-auto last:w-[calc(50%-8px)] sm:last:col-span-1 sm:last:w-full">
+            <figure key={character.id} className="overflow-hidden rounded-md border border-border bg-background">
               <Image src={character.image} alt={character.alt} sizes="(max-width: 520px) 40vw, 190px" className="aspect-square h-auto w-full object-cover" />
               <figcaption className="px-3 py-3 font-mono text-xs text-brand-cyan">GORBAGIO #{character.id}</figcaption>
             </figure>
