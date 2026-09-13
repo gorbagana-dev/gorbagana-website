@@ -29,6 +29,7 @@ import { gorbaganaNetwork } from "@/config/network";
 import { siteConfig } from "@/config/site";
 
 const navigationGroups = [
+  { label: "Gorbagios", href: "/community#gorbagios" },
   {
     label: "Home",
     href: "/",
@@ -66,6 +67,10 @@ const navigationGroups = [
       {
         label: "Apps",
         href: ecosystemCategoryHref("Apps"),
+      },
+      {
+        label: "Collectibles",
+        href: ecosystemCategoryHref("Collectibles"),
       },
       {
         label: "Infrastructure",
@@ -198,6 +203,10 @@ const footerColumns = [
         href: ecosystemCategoryHref("Apps"),
       },
       {
+        label: "Collectibles",
+        href: ecosystemCategoryHref("Collectibles"),
+      },
+      {
         label: "Infrastructure",
         href: ecosystemCategoryHref("Infrastructure"),
       },
@@ -218,6 +227,7 @@ const footerColumns = [
   {
     title: "Community",
     links: [
+      { label: "Gorbagios", href: "/community#gorbagios" },
       {
         label: "Community",
         href: "/community",

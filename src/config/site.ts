@@ -2,9 +2,10 @@ export const siteConfig = {
   name: "Gorbagana",
   title: "Gorbagana",
   description:
-    "Gorbagana is a live Solana-derived L1 with native GOR, SVM-compatible tooling, a bridge, explorer, docs, and a growing app ecosystem.",
+    "Gorbagana is a Solana-derived L1 for trash culture, Gorbagios NFTs, meme-native apps, and builders. Meet the characters. Join the community. Build with GOR.",
   url: "https://gorbagana.wtf",
   links: {
+    gorbagios: "https://magiceden.io/marketplace/gorbagio",
     docs: "https://docs.gorbagana.wtf/",
     github: "https://github.com/gorbagana-dev",
     telegram: "https://t.me/gorbagana_portal",

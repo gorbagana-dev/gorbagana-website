@@ -1,3 +1,4 @@
+import { GorbagiosFeature } from "@/features/culture/components/gorbagios-feature";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/ssr";
@@ -22,10 +23,10 @@ const actionLinks = [
     description: "Set up RPC, fund a wallet, deploy programs, and inspect results.",
   },
   {
-    label: "Network",
-    meta: "Network",
-    href: "/network",
-    description: "Endpoints, validators, bridge, token values, and live activity.",
+    label: "Gorbagios",
+    meta: "Collectors",
+    href: "#gorbagios",
+    description: "Meet the collection. Find your face in the landfill.",
   },
   {
     label: "Bridge GOR",
@@ -110,20 +111,22 @@ export function HomePage() {
             <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
               <div className="brand-hero-copy min-w-0 px-6 py-12 sm:px-10 lg:py-20">
                 <p className="brand-sticker mb-8">Built by degens for dreamers</p>
-                <h1 className="font-heading text-[clamp(3rem,5.5vw,5.5rem)] text-primary">Trash chain.<br />Serious builders.</h1>
-                <p className="mt-7 max-w-xl text-lg leading-8 text-muted-foreground">A Solana fork for internet-native apps. Build on a live Solana-derived L1 with native GOR and SVM-compatible tooling.</p>
+                <h1 className="font-heading text-[clamp(3rem,5.5vw,5.5rem)] text-primary">Trash people.<br />Our kind of people.</h1>
+                <p className="mt-7 max-w-xl text-lg leading-8 text-muted-foreground">A home for collectors, meme makers, and builders who see treasure in the trash. Meet the Gorbagios, bring your weirdest idea, and make it part of Gorbagana—a Solana-derived chain powered by GOR.</p>
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                  <Button asChild size="lg" className="h-12 px-6 uppercase"><Link href="/build">Start building <ArrowUpRightIcon aria-hidden="true" /></Link></Button>
-                  <Button asChild size="lg" variant="outline" className="h-12 px-6 uppercase"><Link href="/network">View network</Link></Button>
+                  <Button asChild size="lg" className="h-12 px-6 uppercase"><Link href="#gorbagios">Meet the Gorbagios <ArrowUpRightIcon aria-hidden="true" /></Link></Button>
+                  <Button asChild size="lg" variant="outline" className="h-12 px-6 uppercase"><Link href="/build">Build on Gorbagana</Link></Button>
                 </div>
               </div>
               <div className="flex items-center justify-center p-6 sm:p-10">
                 <Image src={BrandPortrait} alt="Green Gorbagana bin character against a neon synthwave sunset." priority sizes="(min-width: 1024px) 40vw, 90vw" className="brand-art h-auto w-full max-w-[480px]" />
               </div>
             </div>
-            <div className="border-t border-border bg-card [&>aside]:lg:grid-cols-4"><NetworkStatsRail variant="full" /></div>
+
           </div>
         </section>
+
+        <div className="mx-4 sm:mx-5"><div className="mx-auto max-w-[1440px] border-x border-border"><GorbagiosFeature /></div></div>
 
         <section className="px-4 sm:px-5">
           <div className="mx-auto grid w-full max-w-[1440px] divide-y divide-border border-x border-b border-border md:grid-cols-2 md:divide-x md:divide-y-0 xl:grid-cols-4">
@@ -174,7 +177,7 @@ export function HomePage() {
               </div>
             </div>
             <div className="grid min-w-0 grid-cols-1 border border-border sm:grid-cols-2">
-              {ecosystemProjects.map((project) => (
+              {ecosystemProjects.filter((project) => project.category !== "Collectibles").map((project) => (
                 <EcosystemPreview
                   key={project.label}
                   project={project}
@@ -190,22 +193,22 @@ export function HomePage() {
               className="border-b border-border px-6 py-16 sm:px-10 lg:border-r lg:border-b-0 lg:py-20"
             >
               <p className="font-mono text-xs tracking-[0.18em] text-primary uppercase">
-                Network culture
+                Trash culture
               </p>
               <SectionHeading className="mt-5 max-w-2xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl">
-                Built in public. Running live.
+                Same trash. Different vibes.
               </SectionHeading>
               <p className="mt-7 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-                Gorbagana pairs live SVM infrastructure with the public energy
-                of apps, launchpads, tools, bridge flows, and builders shipping
-                on-chain.
+                A Gorbagio as your avatar. A joke that turns into a group project.
+                A late-night idea that becomes an app. Gorbagana culture is made
+                by the people who show up, remix it, and pass it on.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Button
                   asChild
                   className="h-12 rounded-sm bg-primary px-6 font-mono text-sm font-bold text-black uppercase hover:bg-primary-hover"
                 >
-                  <Link href="/ecosystem">Explore ecosystem</Link>
+                  <Link href="/community">Find your people</Link>
                 </Button>
                 <Button
                   asChild
@@ -287,6 +290,7 @@ export function HomePage() {
             </div>
           </div>
         </section>
+        <section aria-label="Live network statistics" className="mx-auto max-w-[1440px] border-x border-border bg-card [&>aside]:lg:grid-cols-4"><NetworkStatsRail variant="full" /></section>
       </HomeMotionRoot>
       <SiteFooter />
     </>

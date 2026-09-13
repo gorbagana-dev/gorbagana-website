@@ -19,3 +19,7 @@ The supplied **Gorbagana Design System.zip** is preserved, unchanged, in [design
 Use semantic Tailwind colors (background, card, primary, muted-foreground, border) rather than new hex colors. Keep technical values and network configuration out of decorative copy. Reference sample data is illustrative and must never replace live RPC state.
 
 Check all six routes at desktop and mobile widths, keyboard focus, the mobile menu, ecosystem anchors, and network copy actions. Run npm run lint, npm run typecheck, and npm run build. The archived demo components are excluded from lint/typechecking because they are not application code.
+
+## Culture and collection content
+
+The homepage and community page share GorbagiosFeature in src/features/culture/components/. Put character art and community participation alongside developer content. Use the canonical GORBAGIO collection name and Gorbagios plural. Asset provenance and verified collection facts are recorded in src/assets/gorbagios/README.md. Keep reference previews small; never imply that the brand PFP represents a particular NFT.

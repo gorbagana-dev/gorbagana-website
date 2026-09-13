@@ -1,3 +1,4 @@
+import { GorbagiosFeature } from "@/features/culture/components/gorbagios-feature";
 import Link from "next/link";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/ssr";
 
@@ -19,6 +20,8 @@ const breadcrumbJsonLd = createBreadcrumbJsonLd("/community");
 const docsBaseUrl = siteConfig.links.docs.replace(/\/$/, "");
 
 const pathLinks = [
+  { label: "Meet the Gorbagios", href: "#gorbagios", meta: "Collectors", description: "Explore the faces of the landfill and find the character that feels like you." },
+  { label: "Make some good trash", href: siteConfig.links.telegram, meta: "Creators", description: "Share your memes, art, and character stories with the community. Give the trash a life of its own." },
   {
     label: "Explore apps",
     href: "/ecosystem",
@@ -181,36 +184,10 @@ const agentLinks = [
 ] as const;
 
 const communityPrinciples = [
-  {
-    title: "Use public channels",
-    meta: "Coordination",
-    description:
-      "Keep project announcements, support requests, and ecosystem submissions easy for others to verify.",
-  },
-  {
-    title: "Point to live work",
-    meta: "Ecosystem",
-    description:
-      "Projects should link to something people can use, inspect, test, or follow.",
-  },
-  {
-    title: "Build in the open",
-    meta: "Developers",
-    description:
-      "Gorbagana started in public, and the strongest contributions are still easy to inspect.",
-  },
-  {
-    title: "Keep references current",
-    meta: "Docs",
-    description:
-      "Network endpoints, bridge links, and deployment notes should stay aligned with the live chain.",
-  },
-  {
-    title: "Learn the origin",
-    meta: "Story",
-    description:
-      "Read the public story to understand how the chain moved from a challenge to a live network.",
-  },
+  { title: "Make it yours", meta: "Characters", description: "A profile picture is a beginning. Give your Gorbagio a voice, a running joke, or a place in your next piece of art." },
+  { title: "Keep the joke going", meta: "Memes", description: "Remix a good idea. Credit the people who made it. Make the next person want to join in." },
+  { title: "Build something weird", meta: "Experiments", description: "Games, social tools, and on-chain experiments belong here. Share what you are making and invite people to try it." },
+  { title: "Leave room in the bin", meta: "Community", description: "Welcome new faces, answer a question, and help someone find their way. You do not need an NFT or a code repository to join the conversation." },
 ] as const;
 
 export default function CommunityPage() {
@@ -219,10 +196,11 @@ export default function CommunityPage() {
       {breadcrumbJsonLd ? <JsonLd data={breadcrumbJsonLd} /> : null}
       <InteriorPage
         eyebrow="Community"
-        title="Join Gorbagana"
-        description="Choose the right channel for chat, updates, source, project submissions, and builder support."
+        title="Welcome to the landfill"
+        description="Collectors, artists, meme makers, builders. Bring a Gorbagio, a strange idea, or just yourself. There is more than one way to belong here."
       >
-        <InteriorSection title="Choose your path">
+        <GorbagiosFeature />
+        <InteriorSection title="Find your people">
           <PathGrid links={pathLinks} />
         </InteriorSection>
 

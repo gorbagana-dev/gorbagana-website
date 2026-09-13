@@ -1,5 +1,8 @@
+import { siteConfig } from "@/config/site";
+
 export const ecosystemCategoryLabels = [
   "Apps",
+  "Collectibles",
   "Infrastructure",
   "Launchpads",
   "Privacy",
@@ -9,6 +12,7 @@ export type EcosystemCategory = (typeof ecosystemCategoryLabels)[number];
 
 export const ecosystemCategorySlugs = {
   Apps: "apps",
+  Collectibles: "collectibles",
   Infrastructure: "infrastructure",
   Launchpads: "launchpads",
   Privacy: "privacy",
@@ -27,6 +31,7 @@ export type EcosystemProject = {
 };
 
 export const ecosystemProjects = [
+  { label: "Gorbagios", href: siteConfig.links.gorbagios, meta: "NFT collection", category: "Collectibles", description: "4,444 discarded-object characters from Gorbagana culture. Explore the GORBAGIO collection on Magic Eden." },
   {
     label: "Trash Talk",
     href: "https://www.trashtalk.zone/",

@@ -10,7 +10,7 @@ export const publicRoutes = [
     path: "/",
     title: "Gorbagana",
     description:
-      "Gorbagana is a live Solana-derived L1 with native GOR, SVM-compatible tooling, a bridge, explorer, docs, and a growing app ecosystem.",
+      "Meet Gorbagana: Gorbagios NFTs, trash culture, meme-native apps, and a Solana-derived chain for builders.",
     priority: 1,
   },
   {
@@ -45,7 +45,7 @@ export const publicRoutes = [
     path: "/community",
     title: "Gorbagana Community",
     description:
-      "Find the right Gorbagana channel for chat, updates, source, project submissions, and builder support.",
+      "Meet the Gorbagios NFT collection and join Gorbagana’s collectors, artists, meme makers, and builders.",
     priority: 0.7,
   },
 ] as const satisfies readonly PublicRoute[];
