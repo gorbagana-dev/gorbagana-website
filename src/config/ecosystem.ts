@@ -33,6 +33,14 @@ export type EcosystemProject = {
 export const ecosystemProjects = [
   { label: "Gorbagios", href: siteConfig.links.gorbagios, meta: "NFT collection", category: "Collectibles", description: "4,444 discarded-object characters from Gorbagana culture. Explore the GORBAGIO collection on Magic Eden." },
   {
+    label: "Mucklings",
+    href: "https://midden.wtf/mucklings",
+    meta: "NFT collection",
+    category: "Collectibles",
+    description:
+      "4,444 Gorbagana collectibles. Burn an eligible Gulag NFT or pay GOR to claim and reveal a Muckling on Junkheap.",
+  },
+  {
     label: "Trash Talk",
     href: "https://www.trashtalk.zone/",
     meta: "Social app",
