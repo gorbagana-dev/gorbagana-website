@@ -5,7 +5,6 @@ export const ecosystemCategoryLabels = [
   "Collectibles",
   "Infrastructure",
   "Launchpads",
-  "Privacy",
 ] as const;
 
 export type EcosystemCategory = (typeof ecosystemCategoryLabels)[number];
@@ -15,7 +14,6 @@ export const ecosystemCategorySlugs = {
   Collectibles: "collectibles",
   Infrastructure: "infrastructure",
   Launchpads: "launchpads",
-  Privacy: "privacy",
 } as const satisfies Record<EcosystemCategory, string>;
 
 export function ecosystemCategoryHref(category: EcosystemCategory) {
@@ -33,12 +31,25 @@ export type EcosystemProject = {
 export const ecosystemProjects = [
   { label: "Gorbagios", href: siteConfig.links.gorbagios, meta: "NFT collection", category: "Collectibles", description: "4,444 discarded-object characters from Gorbagana culture. Explore the GORBAGIO collection on Magic Eden." },
   {
-    label: "Trash Talk",
-    href: "https://www.trashtalk.zone/",
-    meta: "Social app",
+    label: "Scraps",
+    href: "https://scraps.gorbagana.wtf",
+    meta: "Multisig",
     category: "Apps",
-    description:
-      "A public on-chain message wall where users pay in GOR to publish posts on Gorbagana.",
+    description: "Manage shared funds and program upgrades with your team.",
+  },
+  {
+    label: "Binswap",
+    href: "https://binswap.wtf",
+    meta: "DEX",
+    category: "Apps",
+    description: "Swap tokens and provide liquidity on Gorbagana.",
+  },
+  {
+    label: "Junkheap",
+    href: "https://junkheap.wtf",
+    meta: "NFT marketplace",
+    category: "Apps",
+    description: "The NFT marketplace native to Gorbagana.",
   },
   {
     label: "Trash Scan",
@@ -55,13 +66,5 @@ export const ecosystemProjects = [
     category: "Launchpads",
     description:
       "The official launchpad for creating, trading, and discovering tokens on Gorbagana.",
-  },
-  {
-    label: "Privacy Trash",
-    href: "https://privacytrash.com",
-    meta: "Private transfers",
-    category: "Privacy",
-    description:
-      "A private transfer app for moving GOR through shielded balances.",
   },
 ] as const satisfies readonly EcosystemProject[];

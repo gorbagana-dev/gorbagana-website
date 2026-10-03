@@ -57,10 +57,11 @@ Important notes:
 - [GitHub](${siteConfig.links.github}): Public repositories and development activity.
 
 ## Optional
-- [Trash Talk](https://www.trashtalk.zone/): Public on-chain message wall on Gorbagana.
+- [Scraps](https://scraps.gorbagana.wtf): Manage shared funds and program upgrades with your team.
+- [Binswap](https://binswap.wtf): Swap tokens and provide liquidity on Gorbagana.
+- [Junkheap](https://junkheap.wtf): The NFT marketplace native to Gorbagana.
 - [Trash Scan](${gorbaganaNetwork.urls.explorer}): Official Gorbagana explorer.
 - [Dumpster](https://dumpster.cash): Token launchpad for Gorbagana.
-- [Privacy Trash](https://privacytrash.com): Private transfer app for GOR.
 `;
 }
 

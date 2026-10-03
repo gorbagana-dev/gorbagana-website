@@ -81,10 +81,6 @@ const navigationGroups = [
         href: ecosystemCategoryHref("Launchpads"),
       },
       {
-        label: "Privacy",
-        href: ecosystemCategoryHref("Privacy"),
-      },
-      {
         label: "Submit project",
         href: "/ecosystem#submit-project",
       },
@@ -213,10 +209,6 @@ const footerColumns = [
       {
         label: "Launchpads",
         href: ecosystemCategoryHref("Launchpads"),
-      },
-      {
-        label: "Privacy",
-        href: ecosystemCategoryHref("Privacy"),
       },
       {
         label: "Submit project",
