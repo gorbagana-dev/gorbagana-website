@@ -60,6 +60,13 @@ export const ecosystemProjects = [
       "The official explorer for Gorbagana blocks, transactions, accounts, programs, and validators.",
   },
   {
+    label: "TrashID",
+    href: "https://trashid.wtf",
+    meta: "Name service",
+    category: "Infrastructure",
+    description: "Register and manage your .gor name on Gorbagana.",
+  },
+  {
     label: "Dumpster",
     href: "https://dumpster.cash",
     meta: "Launchpad",

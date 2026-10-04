@@ -61,6 +61,7 @@ Important notes:
 - [Binswap](https://binswap.wtf): Swap tokens and provide liquidity on Gorbagana.
 - [Junkheap](https://junkheap.wtf): The NFT marketplace native to Gorbagana.
 - [Trash Scan](${gorbaganaNetwork.urls.explorer}): Official Gorbagana explorer.
+- [TrashID](https://trashid.wtf): Register and manage your .gor name on Gorbagana.
 - [Dumpster](https://dumpster.cash): Token launchpad for Gorbagana.
 `;
 }
