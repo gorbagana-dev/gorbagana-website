@@ -27,7 +27,7 @@ Important notes:
 - [Build](${pageUrl("/build")}): Developer path for RPC setup, funding, program deployment, tooling, and guides.
 - [Network](${pageUrl("/network")}): Live network values for RPC, explorer, bridge, validators, and token references.
 - [Ecosystem](${pageUrl("/ecosystem")}): Apps, launchpads, privacy tools, and network services already running on Gorbagana.
-- [Origin](${pageUrl("/origin")}): Public origin story, timeline, people, and receipts.
+- [Origin](${pageUrl("/origin")}): Public origin story, timeline, and receipts.
 - [Community](${pageUrl("/community")}): Channels, contribution paths, network links, and AI-agent resources.
 
 ## AI Agent Resources

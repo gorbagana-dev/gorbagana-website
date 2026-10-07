@@ -505,7 +505,7 @@ export function SiteFooter() {
 
         <div className="flex flex-col justify-between gap-6 px-6 py-6 sm:px-10 lg:flex-row lg:items-center">
           <p className="font-mono text-xs text-muted-foreground uppercase">
-            2026 Gorbagana
+            2026 Gorbagana Labs PBC
           </p>
           <div className="flex flex-wrap gap-x-6 gap-y-3">
             {footerBottomLinks.map((link) => (

@@ -14,7 +14,6 @@ import {
   ResourceGrid,
 } from "@/features/site/components/interior-page";
 import { createBreadcrumbJsonLd, createPageMetadata } from "@/lib/seo";
-import { XLogoIcon } from "@phosphor-icons/react/ssr";
 
 export const metadata = createPageMetadata("/origin");
 
@@ -96,73 +95,6 @@ const currentNetwork = [
   },
 ] as const;
 
-const people = [
-  {
-    group: "Creator",
-    members: [
-      {
-        name: "@lex_node",
-        href: "https://x.com/lex_node",
-      },
-    ],
-  },
-  {
-    group: "Core Team",
-    members: [
-      {
-        name: "@AFDudley0",
-        href: "https://x.com/AFDudley0",
-      },
-      {
-        name: "@itsdarthdev",
-        href: "https://x.com/itsdarthdev",
-      },
-      {
-        name: "@vo_0id",
-        href: "https://x.com/vo_0id",
-      },
-      {
-        name: "@rizzmadedev",
-        href: "https://x.com/rizzmadedev",
-      },
-      {
-        name: "@nakakash0o",
-        href: "https://x.com/nakakash0o",
-      },
-    ],
-  },
-  {
-    group: "Contributors",
-    members: [
-      {
-        name: "@_TomHoward",
-        href: "https://x.com/_TomHoward",
-      },
-      {
-        name: "@internet_shubhi",
-        href: "https://x.com/internet_shubhi",
-      },
-      {
-        name: "@Ec1ipse_sol",
-        href: "https://x.com/Ec1ipse_sol",
-      },
-      {
-        name: "@Sarv_shaktiman",
-        href: "https://x.com/Sarv_shaktiman",
-      },
-    ],
-  },
-  {
-    group: "Infrastructure",
-    members: [
-      {
-        name: "Laconic",
-        href: "https://x.com/laconicnetwork",
-      },
-    ],
-  },
-] as const;
-
 export default function OriginPage() {
   return (
     <>
@@ -220,17 +152,6 @@ export default function OriginPage() {
           />
         </InteriorSection>
 
-        <InteriorSection title="People">
-          <div className="border-b border-border px-6 py-8 sm:px-8">
-            <p className="max-w-2xl text-base leading-7 text-muted-foreground">
-              Gorbagana is maintained by its core team and supported by
-              contributors across development, infrastructure, community, and
-              ecosystem work.
-            </p>
-          </div>
-          <PeopleGrid groups={people} />
-        </InteriorSection>
-
         <InteriorSection title="Receipts">
           <ResourceGrid
             links={[
@@ -267,51 +188,6 @@ export default function OriginPage() {
         </InteriorSection>
       </InteriorPage>
     </>
-  );
-}
-
-function PeopleGrid({
-  groups,
-}: {
-  groups: readonly {
-    group: string;
-    members: readonly {
-      name: string;
-      href: string;
-    }[];
-  }[];
-}) {
-  return (
-    <div className="grid sm:grid-cols-2">
-      {groups.map((group) => (
-        <div
-          key={group.group}
-          className="min-w-0 border-b border-border px-6 py-7 sm:px-8 even:sm:border-l"
-        >
-          <p className="font-mono text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
-            {group.group}
-          </p>
-          <div className="mt-5 flex flex-col items-start gap-3">
-            {group.members.map((member) => (
-              <a
-                key={member.name}
-                href={member.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group/link inline-flex max-w-full items-center gap-2 font-heading text-2xl leading-none font-black tracking-[-0.03em] text-white transition hover:text-primary"
-              >
-                <span className="truncate">{member.name}</span>
-                <XLogoIcon
-                  aria-hidden="true"
-                  className="size-4 shrink-0 text-muted-foreground transition group-hover/link:text-primary"
-                  weight="bold"
-                />
-              </a>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
   );
 }
 
