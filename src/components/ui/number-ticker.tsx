@@ -105,7 +105,7 @@ export function NumberTicker({
       )}
       {...props}
     >
-      {startValue}
+      {formatTickerValue(direction === "down" ? startValue : value, decimalPlaces)}
     </span>
   )
 }
