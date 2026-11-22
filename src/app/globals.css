@@ -129,6 +129,12 @@
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html:has([data-trash-apps]:target) {
+    scroll-behavior: smooth;
+  }
+}
+
 /* Gorbagana website adaptation. Canonical palette/effects live in design-system/. */
 @layer base {
   html { scroll-padding-top: 6rem; }

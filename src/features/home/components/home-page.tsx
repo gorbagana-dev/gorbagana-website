@@ -1,7 +1,12 @@
 import { GorbagiosFeature } from "@/features/culture/components/gorbagios-feature";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRightIcon } from "@phosphor-icons/react/ssr";
+import {
+  ArrowDownIcon,
+  ArrowRightIcon,
+  ArrowUpRightIcon,
+  TrashIcon,
+} from "@phosphor-icons/react/ssr";
 
 import CultureBanner from "../../../../design-system/gorbagana/assets/brand/gorbagana-banner.png";
 import BrandPortrait from "../../../../design-system/gorbagana/assets/brand/gorbagana-pfp.png";
@@ -113,10 +118,24 @@ export function HomePage() {
                 <p className="brand-sticker mb-8">Serious blocks. Garbage manners.</p>
                 <h1 className="font-heading text-[clamp(3rem,5.5vw,5.5rem)] text-primary">The chain is trash.<br />That’s the point.</h1>
                 <p className="mt-7 max-w-xl text-lg leading-8 text-muted-foreground">Gorbagana is a Solana-derived chain for collectors, meme makers, and builders who see treasure in the trash. Bridge GOR, open the apps already running, and bring the next weird idea on-chain.</p>
-                <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                  <Button asChild size="lg" className="h-12 px-6 uppercase"><Link href="/network">Use the chain <ArrowUpRightIcon aria-hidden="true" /></Link></Button>
-                  <Button asChild size="lg" variant="outline" className="h-12 px-6 uppercase"><Link href="/build">Build on Gorbagana</Link></Button>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  <Button asChild size="lg" className="h-12 px-6 uppercase">
+                    <a href="#apps">
+                      Use the chain <ArrowDownIcon aria-hidden="true" />
+                    </a>
+                  </Button>
+                  <Button asChild size="lg" variant="outline" className="h-12 px-6 uppercase">
+                    <Link href="/network">
+                      Check the chain <ArrowRightIcon aria-hidden="true" />
+                    </Link>
+                  </Button>
                 </div>
+                <Link
+                  href="/build"
+                  className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+                >
+                  Build on Gorbagana
+                </Link>
               </div>
               <div className="brand-art-stage flex items-center justify-center p-6 sm:p-10">
                 <Image src={BrandPortrait} alt="Green Gorbagana bin character against a neon synthwave sunset." priority sizes="(min-width: 1024px) 40vw, 90vw" className="brand-art brand-art-3d h-auto w-full max-w-[480px]" />
@@ -126,14 +145,20 @@ export function HomePage() {
           </div>
         </section>
 
-        <section id="apps" className="px-4 sm:px-5">
+        <section aria-labelledby="apps" className="px-4 sm:px-5">
           <div className="mx-auto grid w-full max-w-[1440px] gap-12 border-x border-b border-border px-6 py-20 sm:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:py-28">
             <div className="min-w-0">
-              <SectionHeading className="max-w-4xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
-                Apps on the chain.
-              </SectionHeading>
+              <h2
+                id="apps"
+                data-trash-apps
+                tabIndex={-1}
+                className="flex w-fit items-center gap-3 font-heading text-4xl text-white sm:gap-4 sm:text-6xl lg:text-7xl"
+              >
+                Trash apps.
+                <TrashIcon aria-hidden="true" className="size-7 shrink-0 text-primary sm:size-10" weight="bold" />
+              </h2>
               <p className="mt-7 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-                Social, launchpads, privacy, and the explorer. Already live on Gorbagana.
+                Apps and tools from across the Gorbagana ecosystem.
               </p>
               <div className="mt-9">
                 <Button
