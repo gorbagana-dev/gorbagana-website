@@ -27,7 +27,7 @@ Important notes:
 - [Build](${pageUrl("/build")}): Developer path for RPC setup, funding, program deployment, tooling, and guides.
 - [Network](${pageUrl("/network")}): Live network values for RPC, explorer, bridge, validators, and token references.
 - [Ecosystem](${pageUrl("/ecosystem")}): Apps, launchpads, privacy tools, and network services already running on Gorbagana.
-- [Origin](${pageUrl("/origin")}): Public origin story, timeline, people, and receipts.
+- [Origin](${pageUrl("/origin")}): Public origin story, timeline, and receipts.
 - [Community](${pageUrl("/community")}): Channels, contribution paths, network links, and AI-agent resources.
 
 ## AI Agent Resources
@@ -57,10 +57,12 @@ Important notes:
 - [GitHub](${siteConfig.links.github}): Public repositories and development activity.
 
 ## Optional
-- [Trash Talk](https://www.trashtalk.zone/): Public on-chain message wall on Gorbagana.
+- [Scraps](https://scraps.gorbagana.wtf): Manage shared funds and program upgrades with your team.
+- [Binswap](https://binswap.wtf): Swap tokens and provide liquidity on Gorbagana.
+- [Junkheap](https://junkheap.wtf): The NFT marketplace native to Gorbagana.
 - [Trash Scan](${gorbaganaNetwork.urls.explorer}): Official Gorbagana explorer.
+- [TrashID](https://trashid.wtf): Register and manage your .gor name on Gorbagana.
 - [Dumpster](https://dumpster.cash): Token launchpad for Gorbagana.
-- [Privacy Trash](https://privacytrash.com): Private transfer app for GOR.
 `;
 }
 
