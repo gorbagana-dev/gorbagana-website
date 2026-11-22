@@ -110,19 +110,49 @@ export function HomePage() {
           <div className="brand-hero mx-auto w-full max-w-[1440px] border-x border-b border-border">
             <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
               <div className="brand-hero-copy min-w-0 px-6 py-12 sm:px-10 lg:py-20">
-                <p className="brand-sticker mb-8">Built by degens for dreamers</p>
-                <h1 className="font-heading text-[clamp(3rem,5.5vw,5.5rem)] text-primary">Trash people.<br />Our kind of people.</h1>
-                <p className="mt-7 max-w-xl text-lg leading-8 text-muted-foreground">A home for collectors, meme makers, and builders who see treasure in the trash. Meet the Gorbagios, bring your weirdest idea, and make it part of Gorbagana—a Solana-derived chain powered by GOR.</p>
+                <p className="brand-sticker mb-8">Serious blocks. Garbage manners.</p>
+                <h1 className="font-heading text-[clamp(3rem,5.5vw,5.5rem)] text-primary">The chain is trash.<br />That’s the point.</h1>
+                <p className="mt-7 max-w-xl text-lg leading-8 text-muted-foreground">Gorbagana is a Solana-derived chain for collectors, meme makers, and builders who see treasure in the trash. Bridge GOR, open the apps already running, and bring the next weird idea on-chain.</p>
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                  <Button asChild size="lg" className="h-12 px-6 uppercase"><Link href="#gorbagios">Meet the Gorbagios <ArrowUpRightIcon aria-hidden="true" /></Link></Button>
+                  <Button asChild size="lg" className="h-12 px-6 uppercase"><Link href="/network">Use the chain <ArrowUpRightIcon aria-hidden="true" /></Link></Button>
                   <Button asChild size="lg" variant="outline" className="h-12 px-6 uppercase"><Link href="/build">Build on Gorbagana</Link></Button>
                 </div>
               </div>
-              <div className="flex items-center justify-center p-6 sm:p-10">
-                <Image src={BrandPortrait} alt="Green Gorbagana bin character against a neon synthwave sunset." priority sizes="(min-width: 1024px) 40vw, 90vw" className="brand-art h-auto w-full max-w-[480px]" />
+              <div className="brand-art-stage flex items-center justify-center p-6 sm:p-10">
+                <Image src={BrandPortrait} alt="Green Gorbagana bin character against a neon synthwave sunset." priority sizes="(min-width: 1024px) 40vw, 90vw" className="brand-art brand-art-3d h-auto w-full max-w-[480px]" />
               </div>
             </div>
 
+          </div>
+        </section>
+
+        <section id="apps" className="px-4 sm:px-5">
+          <div className="mx-auto grid w-full max-w-[1440px] gap-12 border-x border-b border-border px-6 py-20 sm:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:py-28">
+            <div className="min-w-0">
+              <SectionHeading className="max-w-4xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
+                Apps on the chain.
+              </SectionHeading>
+              <p className="mt-7 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+                Social, launchpads, privacy, and the explorer. Already live on Gorbagana.
+              </p>
+              <div className="mt-9">
+                <Button
+                  asChild
+                  variant="outline"
+                  className="h-12 rounded-sm border-border bg-white/[0.03] px-6 font-mono text-sm font-bold text-white uppercase hover:bg-white/10 hover:text-white"
+                >
+                  <Link href="/ecosystem">View ecosystem</Link>
+                </Button>
+              </div>
+            </div>
+            <div className="grid min-w-0 grid-cols-1 border border-border sm:grid-cols-2">
+              {ecosystemProjects.filter((project) => project.category !== "Collectibles").map((project) => (
+                <EcosystemPreview
+                  key={project.label}
+                  project={project}
+                />
+              ))}
+            </div>
           </div>
         </section>
 
@@ -151,37 +181,6 @@ export function HomePage() {
             <div className="relative z-10 grid border border-border sm:grid-cols-2">
               {whyReasons.map((reason) => (
                 <WhyReason key={reason.title} {...reason} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="px-4 sm:px-5">
-          <div className="mx-auto grid w-full max-w-[1440px] gap-12 border-x border-b border-border px-6 py-20 sm:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:py-28">
-            <div className="min-w-0">
-              <SectionHeading className="max-w-4xl font-heading text-4xl leading-none font-black tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
-                Find what is live on Gorbagana.
-              </SectionHeading>
-              <p className="mt-7 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-                Apps, launchpads, privacy tools, and network services already
-                running on Gorbagana.
-              </p>
-              <div className="mt-9">
-                <Button
-                  asChild
-                  variant="outline"
-                  className="h-12 rounded-sm border-border bg-white/[0.03] px-6 font-mono text-sm font-bold text-white uppercase hover:bg-white/10 hover:text-white"
-                >
-                  <Link href="/ecosystem">View ecosystem</Link>
-                </Button>
-              </div>
-            </div>
-            <div className="grid min-w-0 grid-cols-1 border border-border sm:grid-cols-2">
-              {ecosystemProjects.filter((project) => project.category !== "Collectibles").map((project) => (
-                <EcosystemPreview
-                  key={project.label}
-                  project={project}
-                />
               ))}
             </div>
           </div>
@@ -290,7 +289,9 @@ export function HomePage() {
             </div>
           </div>
         </section>
-        <section aria-label="Live network statistics" className="mx-auto max-w-[1440px] border-x border-border bg-card [&>aside]:lg:grid-cols-4"><NetworkStatsRail variant="full" /></section>
+        <section aria-label="Live network statistics" className="px-4 sm:px-5">
+          <div className="mx-auto max-w-[1440px] border-x border-border bg-card [&>aside]:lg:grid-cols-4"><NetworkStatsRail variant="full" /></div>
+        </section>
       </HomeMotionRoot>
       <SiteFooter />
     </>
@@ -421,7 +422,7 @@ function ActionLink({
   return (
     <Link
       href={href}
-      className="group block min-h-40 min-w-0 px-6 py-7 transition hover:bg-white/[0.03] sm:px-10 lg:px-6"
+      className="group block min-h-40 min-w-0 px-6 py-7 transition hover:bg-white/[0.03] sm:px-10"
     >
       <div className="flex min-w-0 items-start justify-between gap-5">
         <div className="min-w-0">

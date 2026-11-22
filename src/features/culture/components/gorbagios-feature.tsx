@@ -37,7 +37,15 @@ export function GorbagiosFeature() {
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
           {characters.map((character) => (
             <figure key={character.id} className="overflow-hidden rounded-md border border-border bg-background">
-              <Image src={character.image} alt={character.alt} sizes="(max-width: 520px) 40vw, 190px" className="aspect-square h-auto w-full object-cover" />
+              <div className="relative aspect-square">
+                <Image
+                  src={character.image}
+                  alt={character.alt}
+                  fill
+                  sizes="(max-width: 520px) 40vw, 190px"
+                  className="object-cover"
+                />
+              </div>
               <figcaption className="px-3 py-3 font-mono text-xs text-brand-cyan">GORBAGIO #{character.id}</figcaption>
             </figure>
           ))}

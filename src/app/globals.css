@@ -150,6 +150,15 @@ h3.font-heading { font-family: var(--font-space-grotesk), sans-serif; font-weigh
 .brand-hero-copy { background-image: var(--bg-grid); background-size: var(--bg-grid-size); }
 .brand-sticker { display: inline-block; padding: 8px 12px; border: 2px solid var(--ink-900); border-radius: 2px; background: var(--paper-100); color: var(--ink-900); box-shadow: var(--shadow-sticker); font-family: var(--font-permanent-marker), cursive; text-transform: uppercase; transform: rotate(-2deg); }
 .brand-art { border: 2px solid var(--pink-500); border-radius: 16px; box-shadow: var(--glow-pink); }
+.brand-art-stage { perspective: 1100px; }
+/* Small always-on 3D tilt so the hero portrait reads as a card floating in space (visible on every screen size). */
+.brand-art-3d { transform: rotateX(5deg) rotateY(-11deg) rotateZ(-1deg); transform-origin: center; transition: transform var(--dur-slow) var(--ease-out), box-shadow var(--dur-slow) var(--ease-out); will-change: transform; }
+@media (prefers-reduced-motion: no-preference) {
+  .brand-art-3d:hover { transform: rotateX(0deg) rotateY(0deg) translateY(-6px) scale(1.02); box-shadow: var(--glow-pink-strong); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-art-3d { transform: rotateX(3deg) rotateY(-7deg); }
+}
 .interior-hero { background: var(--gradient-void); border-bottom: 2px solid var(--pink-500); }
 footer { background: var(--surface-1); }
 @media (max-width: 640px) { h1.font-heading { font-size: clamp(2.5rem, 10vw, 3.5rem); } }

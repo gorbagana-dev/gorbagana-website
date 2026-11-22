@@ -29,36 +29,9 @@ import { gorbaganaNetwork } from "@/config/network";
 import { siteConfig } from "@/config/site";
 
 const navigationGroups = [
-  { label: "Gorbagios", href: "/community#gorbagios" },
   {
     label: "Home",
     href: "/",
-  },
-  {
-    label: "Build",
-    href: "/build",
-    links: [
-      {
-        label: "Get started",
-        href: "/build",
-      },
-      {
-        label: "Network setup",
-        href: "/network",
-      },
-      {
-        label: "Deploy programs",
-        href: "/build",
-      },
-      {
-        label: "Tooling",
-        href: "/build",
-      },
-      {
-        label: "GitHub",
-        href: siteConfig.links.github,
-      },
-    ],
   },
   {
     label: "Ecosystem",
@@ -91,6 +64,32 @@ const navigationGroups = [
       {
         label: "Community",
         href: "/community",
+      },
+    ],
+  },
+  {
+    label: "Build",
+    href: "/build",
+    links: [
+      {
+        label: "Get started",
+        href: "/build",
+      },
+      {
+        label: "Network setup",
+        href: "/network",
+      },
+      {
+        label: "Deploy programs",
+        href: "/build",
+      },
+      {
+        label: "Tooling",
+        href: "/build",
+      },
+      {
+        label: "GitHub",
+        href: siteConfig.links.github,
       },
     ],
   },
@@ -137,6 +136,11 @@ const navigationGroups = [
         href: "/origin",
       },
     ],
+  },
+  {
+    label: "Gorbagios",
+    href: "/community#gorbagios",
+    highlight: true,
   },
 ] as const;
 
@@ -364,7 +368,11 @@ function DesktopNavigation() {
             ) : (
               <NavigationMenuLink
                 asChild
-                className="min-h-9 rounded-none bg-transparent px-2 py-2 font-mono text-xs font-medium text-muted-foreground uppercase transition hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white"
+                className={
+                  "highlight" in item
+                    ? "min-h-7 rounded-sm border border-brand-pink/70 bg-brand-pink/15 px-2 py-1 font-mono text-[10px] leading-none font-bold tracking-[0.16em] text-brand-pink uppercase hover:bg-brand-pink/25 hover:text-brand-pink focus:bg-brand-pink/25 focus:text-brand-pink"
+                    : "min-h-9 rounded-none bg-transparent px-2 py-2 font-mono text-xs font-medium text-muted-foreground uppercase transition hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white"
+                }
               >
                 <Link href={item.href}>{item.label}</Link>
               </NavigationMenuLink>
@@ -412,11 +420,15 @@ function MobileMenu() {
         </SheetHeader>
         <div className="grid divide-y divide-border">
           {navigationGroups.map((item) => (
-            <div key={item.label} className="px-5 py-5">
+            <div key={item.label} className={"highlight" in item ? "px-5 py-4" : "px-5 py-5"}>
               <SheetClose asChild>
                 <Link
                   href={item.href}
-                  className="block font-heading text-3xl font-black tracking-[-0.04em] text-white"
+                  className={
+                    "highlight" in item
+                      ? "inline-flex min-h-8 items-center rounded-sm border border-brand-pink/70 bg-brand-pink/15 px-2.5 font-mono text-[10px] leading-none font-bold tracking-[0.16em] text-brand-pink uppercase"
+                      : "block font-heading text-3xl font-black tracking-[-0.04em] text-white"
+                  }
                 >
                   {item.label}
                 </Link>
@@ -455,8 +467,8 @@ function MobileMenu() {
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border">
-      <div className="mx-auto w-full max-w-[1440px]">
+    <footer className="bg-background px-4 sm:px-5">
+      <div className="mx-auto w-full max-w-[1440px] border-x border-t border-border bg-card">
         <div className="grid border-b border-border lg:grid-cols-[0.8fr_2.2fr]">
           <div className="border-b border-border px-6 py-8 sm:px-10 lg:border-r lg:border-b-0">
             <p className="font-heading text-2xl font-black tracking-[-0.04em] text-white">
